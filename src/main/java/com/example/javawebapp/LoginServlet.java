@@ -11,5 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "login", value = "/login")
 public class LoginServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+                
     }
 }
