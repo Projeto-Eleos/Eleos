@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "authpasswordchange", value = "/auth-password-change")
+@WebServlet(name = "authPasswordChange", value = "/authPasswordChange")
 public class AuthPasswordChangeServlet extends HttpServlet {
 
     @Override
@@ -25,16 +25,16 @@ public class AuthPasswordChangeServlet extends HttpServlet {
         // long cod_digitado = Long.parseLong(request.getParameter("cod"));
 
         // if (cod_gerado == cod_digitado) {
-        //     request.setAttribute("codUser", "<id do usuário>");
+        // request.setAttribute("codUser", "<id do usuário>");
 
-        //     // Obtém o RequestDispatcher
-        //     RequestDispatcher dispatcher = request.getRequestDispatcher("/Servlet2");
+        // // Obtém o RequestDispatcher
+        // RequestDispatcher dispatcher = request.getRequestDispatcher("/Servlet2");
 
-        //     // Encaminha a solicitação para Servlet2
-        //     dispatcher.forward(request, response);
-        //     response.sendRedirect("/change-password.html");
+        // // Encaminha a solicitação para Servlet2
+        // dispatcher.forward(request, response);
+        // response.sendRedirect("/change-password.html");
         // } else {
-        //     response.sendRedirect("/código-inválido.html");
+        // response.sendRedirect("/código-inválido.html");
         // }
 
         System.out.println(email);
