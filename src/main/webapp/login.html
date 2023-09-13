@@ -12,25 +12,25 @@
 <body>
     <main>
       <div class="left-side">
-        <div class="content">
+        <form class="content" method="post" action="login">
             <!-- Conteúdo do lado esquerdo -->
             <h1 id="title1">Bem-Vindo</h1>
             <p>Faça login e ajude a fazer a diferença!</p>
             <div class="input-box">
               <label for="email">Email:</label>
-              <input type="email" class="input-field" placeholder="Digite seu endereço de email" required>
+              <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" required>
               <i class="bx bx-envelope"></i>
             </div>
             <div class="input-box">
               <label for="senha">Senha:</label>
-              <input type="password" class="input-field" placeholder="Digite sua senha" required>
+              <input type="password" class="input-field" name="password" placeholder="Digite sua senha" required>
               <i class='bx bx-lock-open-alt' ></i>
             </div>
             <a href="#">Esqueceu sua senha?</a>
             <div class="input-box">
               <input type="submit" class="submit" value="Entrar">
             </div>  
-        </div>
+        </form>
       </div>
       <div class="right-side">
         <div class="content">
