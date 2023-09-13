@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.form-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 620px;
+}
+.register-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: .5s ease-in-out;
+}
+
+.top > h1 {
+    font-size: 64px;
+    color: #09C184;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.top p {
+    font-size: 16px;
+    padding: 10px 0;
+    text-align: justify;
+}
+
+.top span {
+    font-weight: bold;
+}
+
+a {
+    color: #000;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+b:hover{
+    cursor: pointer;
+    transition-duration: .5s;
+    color: #09C184;
+}
+
+.two-forms {
+    display: flex;
+    gap: 50px;
+}
+
+.input-field {
+    font-size: 16px;
+    background-color: #ECECEC;
+    height: 50px;
+    width: 100%;
+    padding: 0 53px 0 40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: .2s ease;
+}
+
+.input-box > label {
+    color: #404040;
+    font-weight: 500;
+}
+
+.input-field:hover, .input-field:focus {
+    background-color: #e1e1e1;
+}
+
+::-webkit-input-placeholder {
+    color: #BFBFBF
+}
+
+.input-box i {
+    position: relative;
+    bottom: 34px;
+    left: 10px;
+    color: #BFBFBF;
+}
+
+.submit {
+    font-size: 16px;
+    color: #fff;
+    background-color: #09C184;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.submit:hover {
+    background-color: #0A8967;
+}
+
+.two-col {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: justify;
+}
+
+.one {
+    padding-bottom: 20px;
+}
+
+/* Para telas menores que 768px (smartphones em modo retrato) */
+@media screen and (max-width: 768px) {
+    .form-box {
+        width: 90%;
+    }
+    
+    /* Faça outros ajustes de estilo aqui */
+}
+
+/* Para telas menores que 480px (smartphones em modo paisagem) */
+@media screen and (max-width: 480px) {
+    .form-box {
+        width: 90%;
+    }
+    .container {
+        min-height: 95vh;
+    }
+    .two-forms {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+    .top > h1 {
+        font-size: 2em; /* ou font-size: 150%; */
+        margin: 0;
+        }
+    .top > p {
+        font-size: 14px;
+    }
+    .top > span {
+        font-size: 14px;
+    }
+    .input-field {
+        height: 38px;
+    }
+    .input-box label {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .input-box i {
+        position: relative;
+        bottom: 26px;
+        left: 10px;
+        color: #BFBFBF;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 14px;
+    }
+    label {
+        font-size: 14px;
+    }
+    .submit {
+        height: 38px;
+        font-size: 16px;
+    }
+    /* Faça outros ajustes de estilo aqui */
+}
+
