@@ -89,7 +89,7 @@
     
         <div class="footer">
             <h3>Eleos.</h3>
-            <p>Informações Contatos Sobre Nós Política de Privacidade Termos de Uso</p>
+            <p>Informações Contatos Sobre Nós <a href="politics-and-privacity.html">Política de Privacidade Termos de Uso</a></p>
             <p>&copy; 2023 Doações Eleos.</p>
         </div>
     </body>

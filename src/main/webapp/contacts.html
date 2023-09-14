@@ -3,43 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles/contacts.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Login</title>
+    <title>Contatos</title>
 </head>
 <body>
-    <main>
-        <div class="left-side">
-            <div class="content">
-                <!-- Conteúdo do lado esquerdo -->
-                <h1 id="title1">Vamos conversar</h1>
-                <h3>Tem perguntas ou precisa de assistência? Estamos aqui para ajudar! Por favor, não hesite em entrar em contato conosco com todas as suas questões, comentários ou solicitações. </h3>
-                <div class="input-box">
-                    <label for="name">Nome:</label><br>
-                    <input type="name" class="input-field" placeholder="" required>
-                  
-                </div>
-                <div class="input-box">
-                    <label for="email">E-mail:</label>
-                    <input type="email" class="input-field" placeholder="" required>
-                </div>
-                <div class="input-box">
-                    <label for="mensagem">Mensagem:</label><br>
-                    <textarea name="mensagem" class="input-field" id="mensagem" cols="10" rows="30">                       
-                    </textarea>
-                </div>
-                <div class="input-box">
-                    <input type="submit" class="submit" value="Enviar">
-                </div>  
-            </div>  
+    <header>
+        <a class="logo" href="index.jsp">Eleos</a>
+        <div class="header-right">
+            <a id="item" href="index.jsp">Página Inicial</a>
+            <a id="item" href="campaigns.html">Campanhas</a>
+            <a class="active" href="#">Contato</a>
+            <a  href="sign-in.html" class="login">Login</a>
+            <a href="sign-up.html" class="cadastro">Cadastre-se</a>
         </div>
-        <div class="right-side">
-            <div class="content">
-                <div class="right">
-                    <div class="card">
-                        <img src="/images/Messages-pana.svg" alt="">
-                    </div>
-                </div> 
+    </header>
+    <main>
+        <div class="conteiner">
+            <div class="left">
+                <h1>Contatos</h1>
+                <p class="descricao">Nossa equipe está ansiosa para ouvir você e trabalhar juntos para causar um impacto positivo no mundo.<br>Seja uma pergunta, sugestão ou desejo de se envolver, estamos aqui para ajudar. Não hesite, entre em contato conosco hoje mesmo e junte-se à nossa missão de mudar vidas!<br><br>
+                    <i class='bx bx-envelope'></i>doacoeseleos@gmail.com<br>
+                    <i class='bx bx-phone'></i>Em breve.
+                </p>
+
+                <div class="left-flex">
+                    <a href="#"><button>Ler mais</button></a>
+                </div>
+            </div>
+            <div class="right">
+                <img src="public/images/Messages-pana.svg" alt="">
             </div>
         </div>
     </main>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oleo+Script:wght@700&display=swap');
 
 * {
     font-family: 'Inter', sans-serif;
@@ -7,123 +7,228 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-main {
-    display: flex;
-    width: 100%;
-}
-
-.left-side, .right-side {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    width: 100vw;
+    background-color: white;
 }
 
-.left-side {
-    background-color: #ffffff; /* Cor de fundo no lado esquerdo */
-}
-
-.right-side {
-    background-color: #f5f5f5; /* Cor de fundo no lado direito */
-    color: #000;
-}
-
-.content {
-    text-align: center;
-    max-width: 45%;
-    justify-content: space-between;
+header {
+    height: 80px;
+    padding: 0 252px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cccccc63;
 }
 
-#title1 {
-    font-size: 50px;
+.logo {
+    font-family: 'Oleo Script', cursive;
+    font-size: 42px;
     color: #09C184;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: #0A8967;
+    transition: .2s ease-in-out;
+}
+
+.active {
+    color: #0A8967;
+    margin-right: 40px;
     font-weight: bold;
-    text-align: center;
+    text-decoration: underline;
 }
 
-
-p {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-a{
-    color: #000;
-}
-
-.input-field {
+#item {
     font-size: 16px;
-    background-color: #ECECEC;
-    height: 50px;
-    width: 100%;
-    padding: 0 53px 0 40px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    transition: .2s ease;
-}
-
-.input-box > label {
-    color: #404040;
-    font-weight: 500;
-}
-
-.input-field:hover, .input-field:focus {
-    background-color: #e1e1e1;
-}
-
-::-webkit-input-placeholder {
-    color: #BFBFBF
-}
-
-.input-box {
-    text-align: justify;
-}
-
-.input-box i {
-    position: relative;
-    bottom: 34px;
-    left: 10px;
-    color: #BFBFBF;
-}
-
-.submit {
-    font-size: 30px;
     font-weight: bold;
-    color: #fff;
-    background-color: #09C184;
-    border: none;
-    border-radius: 50px;
-    outline: none;
-    cursor: pointer;
-    transition: .3s ease-in-out;
-    width: 100%;
-    height: 60px;
-    margin-top: 10px;
+    color: #09C184;
+    text-decoration: none;
+    margin-right: 40px;
 }
 
-.submit:hover {
+#item:hover { 
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    color: #0A8967;
+}
+
+.login {
+    border: 1px solid #09C184;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 40px;
+    color: #09C184;
+}
+
+.login:hover {
+    cursor: pointer;
+    background-color: #0A8967;
+    color: #fff;
+    transition: .2s ease-in-out;
+    border: 1px solid #ffffff00;
+}
+
+.cadastro {
+    background-color: #09C184;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+.cadastro:hover {
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    color: #fff;
     background-color: #0A8967;
 }
 
-#title2 {
-    color: #fff;
-    font-size: 64px;
-    font-weight: bold;
-    text-decoration: underline;
-    text-align: center;
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
 
-.card img {
-    width: 1000px;
-    padding-right: 500px;
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+
+/* Estilos para o título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para o parágrafo */
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para o botão */
+button {
+    padding: 10px 20px;
+    background-color: #09C184;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0A8967;
+}
+
+/* Estilos para a imagem */
+.image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.conteiner {
+    display: flex;
+    height: 88%;
+    align-items: center;
+    padding: 0 252px;
+    justify-content: center;
+}
+
+.left {
+    width: 50%;
+}
+
+h1 {
+    color: #09C184;
+    font-size: 60px;
+    width: 100%;
+    font-weight: 900;
+}
+
+h2 {
+    color: #09C184;
+    font-size: 32px;
+    padding-bottom: 20px;
+}
+
+span {
+    color: #09C184;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#span {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#span:hover {
+    text-decoration: underline;
+}
+
+.descricao{
+    font-size: 20px;
+    color: #7e7e7e;
+    width: 80%;
+    text-align: justify;
+    padding: 20px 0;
+}
+
+button {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 50px;
+    border-radius: 50px;
+    color: #fff;
+    border: 2px solid #09C184;
+    background-color: #09C184;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #09C184;
+    color: #fff;
+    transition: .3s ease-in-out;
+    transform: scale(1.05);
+}
+
+.right {
+    width: 50%;
+}
+
+img {
+    width: 100%;
+}
+
+img:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: .5s;
+}
+
+/* CSS para centralizar a main */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Isso garante que a main ocupe toda a altura da tela. */
+}
+
+
+i {
+    font-size: 26px;
+    margin-top: 3px;
 }
