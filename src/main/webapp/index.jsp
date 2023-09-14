@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +11,18 @@
     </head>
     <body>
         <header>
-            <a class="logo" href="#">Eleos</a>
-            <div class="header-right">
-                <a class="active" href="#">Página Inicial</a>
-                <a id="item" href="#">Quero Doar</a>
-                <a id="item" href="campaigns.html">Campanhas</a>
-                <a id="item" href="contacts.html">Contato</a>
-                <a  href="sign-in.html" class="login">Login</a>
-                <a href="sign-up.html" class="cadastro">Cadastre-se</a>
-            </div>
+            <h1><a  class="logo" href="#">Eleos</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Página Inicial</a></li>
+                    <li><a href="campaigns.html">Campanhas</a></li>
+                    <li><a href="contacts.html">Contato</a></li>
+                </ul>
+                <div class="header-buttons">
+                    <a href="sign-in.html" class="sign-in">Login</a>
+                    <a href="sign-up.html" class="sign-up">Cadastre-se</a>
+                </div>
+            </nav>
         </header>
         <div class="container">
             <div class="left">

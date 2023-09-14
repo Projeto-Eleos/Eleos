@@ -4,27 +4,58 @@
     font-family: 'Inter', sans-serif;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
     width: 100vw;
-    background-color: white;
+    height: 100vh;
+
+    background-color: #fff;
 }
 
 header {
-    height: 80px;
-    padding: 0 252px;
+    height: 5rem;
+    padding: 0 16rem;
+
+    border-bottom: 1px solid #cccccc63;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #cccccc63;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+}
+
+li {
+    list-style: none;
+}
+
+li > a {
+    color: #09c184;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+li > a:hover {
+    color: #0A8967;
+    transition: .2s ease-in-out;
 }
 
 .logo {
+    color: #09c184;
     font-family: 'Oleo Script', cursive;
-    font-size: 42px;
-    color: #09C184;
+    font-size: 2.5rem;
     text-decoration: none;
 }
 
@@ -33,64 +64,53 @@ header {
     transition: .2s ease-in-out;
 }
 
-.active {
-    color: #09C184;
-    margin-right: 40px;
+.header-buttons {
+    display: flex;
+    gap: 1.25rem;
+    margin: 0 1.75rem
+}
+
+.sign-in {
+    height: 2.25rem;
+    padding: 0.5rem 1rem;
+
+    color: #09c184;
     font-weight: bold;
     text-decoration: none;
+
+    border-radius: 0.5rem;
+    border: 1px solid #09c184;
 }
 
-.active:hover {
-    transition: .2s ease-in-out;
-    cursor: pointer;
-    color: #0A8967;
-}
-
-#item {
-    font-size: 16px;
-    font-weight: bold;
-    color: #09C184;
-    text-decoration: none;
-    margin-right: 40px;
-}
-
-#item:hover { 
-    transition: .2s ease-in-out;
-    cursor: pointer;
-    color: #0A8967;
-}
-
-.login {
-    border: 1px solid #09C184;
-    padding: 8px 14px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    margin-right: 40px;
-    color: #09C184;
-}
-
-.login:hover {
-    cursor: pointer;
-    background-color: #0A8967;
-    color: #fff;
-    transition: .2s ease-in-out;
-    border: 1px solid #ffffff00;
-}
-
-.cadastro {
-    background-color: #09C184;
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 5px;
-}
-
-.cadastro:hover {
-    transition: .2s ease-in-out;
-    cursor: pointer;
+.sign-in:hover {
     color: #fff;
     background-color: #0A8967;
+    
+    border: 1px solid;
+
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+
+.sign-up {
+    height: 2.25rem;
+    padding: 0.5rem 1rem;
+
+    color: #fff;
+    background-color: #09c184;
+    
+    font-weight: bold;
+    text-decoration: none;
+
+    border-radius: 0.5rem;
+}
+
+.sign-up:hover {
+    color: #fff;
+    background-color: #0A8967;
+    
+    transition: .2s ease-in-out;
+    cursor: pointer;
 }
 
 .container {
