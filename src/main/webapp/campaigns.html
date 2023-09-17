@@ -3,48 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/campaigns.css">
     <title>Campanhas</title>
+    <link rel="stylesheet" href="./styles/campaigns.css">
+    <link rel="stylesheet" href="./styles/global.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <header>
-        <h1><a  class="logo" href="index.jsp">Eleos</a></h1>
-        <nav>
-            <ul>
-                <li><a href="index.jsp">Página Inicial</a></li>
-                <li><a href="#">Campanhas</a></li>
-                <li><a href="contacts.html">Contato</a></li>
-            </ul>
-            <div class="header-buttons">
-                <a href="sign-in.html" class="sign-in">Login</a>
-                <a href="sign-up.html" class="sign-up">Cadastre-se</a>
-            </div>
-        </nav>
+        <a class="logo" href="#">Eleos.</a>
+        <div class="header-right">
+            <a id="item" href="./index.jsp">Página Inicial</a>
+            <a class="active" href="./campaigns.html">Campanhas</a>
+            <a id="item" href="./contacts.html">Contato</a>
+            <a href="./sign-in.html" class="login">Login</a>
+            <a href="./sign-up.html" class="cadastro">Cadastre-se</a>
+        </div>
     </header>
-    <main>
-        <div class="filter-block">
+    <div class="container">
+        <div class="sidebar">
+            <h2>Filtro</h2>
+            <h3>Tipo de Doação:</h3>
             <ul>
-                <li>filtro 1</li>
-                <li>filtro 2</li>
-                <li>filtro 3</li>
+                <li><a href="#">Alimentos</a></li>
+                <li><a href="#">Roupas</a></li>
+                <li><a href="#">Brinquedos</a></li>
+                <li><a href="#">Produtos de Higiene</a></li>
+                <li><a href="#">Material Escolar</a></li>
+            </ul>
+            <h3>Categoria:</h3>
+            <ul>
+                <li><a href="#">Saúde</a></li>
+                <li><a href="#">Educação</a></li>
+                <li><a href="#">Assistência Social</a></li>
+                <li><a href="#">Meio Ambiente</a></li>
+                <li><a href="#">Cultura</a></li>
             </ul>
         </div>
-        <div class="campaigns-block">
-            <h1>Campanhas ativas</h1>
-            <div class="campaign">
-                <img src="" alt="">
-                <h3>Campanha do leite</h3>
-                <p>Somos a ONG helpit</p>
-                <button class="campaign-button">Quero doar!</button>
+        <div class="content">
+            <div class="product">
+                <img src="./public/images/doação-alimentos1.jpg" alt="Produto 1">
+                <h3>Doação de Alimentos - ONG Brasil</h3>
+                <p>Sua doação de alimentos não perecíveis pode encher estômagos famintos e trazer um sorriso ao rosto de alguém. Cada enlatado, pacote de arroz ou alimento não perecível faz a diferença.</p>
+                <button>Participar da Campanha</button>
             </div>
-        </div>
-    </main>
-    <footer>
-        <h3>Eleos.</h3>
-        <p>Informações Contatos Sobre Nós Política de Privacidade Termos de Uso</p>
-        <p>&copy; 2023 Doações Eleos.</p>
-    </footer>
+            <div class="product">
+                <img src="./public/images/doação-roupas.jpg" alt="Produto 2">
+                <h3>Doação de Roupas - ONG Acredite</h3>
+                <p>Ajude-nos a manter as pessoas aquecidas e confortáveis durante os meses mais frios. Roupas em bom estado são bem-vindas, desde casacos, roupas de inverno até roupas para todas as idades.</p>
+                <button>Participar da Campanha</button>
+            </div>
+            <div class="product">
+                <img src="./public/images/doação-brinquedos.jpg" alt="Produto 1">
+                <h3>Doação de Brinquedos - Criança Esperança</h3>
+                <p>Proporcione alegria e diversão para crianças carentes, doando brinquedos novos ou em bom estado. Seus brinquedos antigos podem fazer novas crianças felizes!</p>
+                <button>Participar da Campanha</button>
+            </div>
+            <div class="product">
+                <img src="./public/images/doação-higiene.jpg" alt="Produto 2">
+                <h3>Doação de Produtos de Higiene - ONG Saúde</h3>
+                <p>Itens de higiene pessoal são essenciais. Itens como sabonete, pasta de dente, xampu e papel higiênico podem fazer uma grande diferença para aqueles que têm acesso limitado a eles.</p>
+                <button>Participar da Campanha</button>
+            </div><div class="product">
+                <img src="./public/images/doação-material.jpg" alt="Produto 1">
+                <h3>Doação de Material Escolar - ONG Educar</h3>
+                <p>Itens de higiene pessoal são essenciais. Itens como sabonete, pasta de dente, xampu e papel higiênico podem fazer uma grande diferença para aqueles que têm acesso limitado a eles.</p>
+                <button>Participar da Campanha</button>
+            </div>
+            <div class="product">
+                <img src="./public/images/doação-roupas.jpg" alt="Produto 2">
+                <h3>Doação de Roupas - ONG Acredite</h3>
+                <p>Descrição do Produto 2.</p>
+                <button>Participar da Campanha</button>
+            </div>
 </body>
 </html>
