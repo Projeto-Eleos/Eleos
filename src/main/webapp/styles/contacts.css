@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oleo+Script:wght@700&display=swap');
 
-* {
+*{
     font-family: 'Inter', sans-serif;
+    padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-body {
-    height: 100vh;
-    width: 100vw;
-    background-color: white;
+header {
+    height: 80px;
+    padding: 0 252px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cccccc63;
 }
 
 header {
@@ -22,7 +26,7 @@ header {
 }
 
 .logo {
-    font-family: 'Oleo Script', cursive;
+    font-weight: 900;
     font-size: 42px;
     color: #09C184;
     text-decoration: none;
@@ -37,7 +41,7 @@ header {
     color: #0A8967;
     margin-right: 40px;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 #item {
@@ -227,8 +231,9 @@ main {
     height: 90vh; /* Isso garante que a main ocupe toda a altura da tela. */
 }
 
-
 i {
     font-size: 26px;
     margin-top: 3px;
+    position: relative;
+    top: 5px;
 }
