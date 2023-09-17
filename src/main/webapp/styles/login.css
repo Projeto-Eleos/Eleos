@@ -1,8 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
 main {
     display: flex;
-    width: 100vw;
+    width: 100%;
 }
 
 .left-side, .right-side {
@@ -23,28 +35,24 @@ main {
 }
 
 .content {
-    padding: 1rem;
     text-align: center;
-    max-width: 60%;
+    max-width: 45%;
+    justify-content: space-between;
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
-    gap: 1.5rem;
 }
 
 #title1 {
-    font-size: 3.375rem;
-    margin: 2rem 0;
+    font-size: 64px;
     color: #09C184;
     font-weight: bold;
-    text-decoration: underline;
     text-align: center;
 }
 
-.left-side > .content > p {
-    color: #0D192B;
-    font-size: 1.25rem;
-    font-weight: 700;
+p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 a{
@@ -64,7 +72,6 @@ a{
 }
 
 .input-box > label {
-    margin: 0.5rem;
     color: #404040;
     font-weight: 500;
 }
@@ -89,17 +96,18 @@ a{
 }
 
 .submit {
-    font-size: 1.5rem;
+    font-size: 30px;
     font-weight: bold;
     color: #fff;
     background-color: #09C184;
     border: none;
-    border-radius: 1rem;
+    border-radius: 50px;
     outline: none;
     cursor: pointer;
     transition: .3s ease-in-out;
     width: 100%;
-    height: 4rem;
+    height: 80px;
+    margin-top: 10px;
 }
 
 .submit:hover {
@@ -110,7 +118,6 @@ a{
     color: #fff;
     font-size: 64px;
     font-weight: bold;
-    text-decoration: underline;
     text-align: center;
 }
 
@@ -138,8 +145,6 @@ a{
     font-size: 32px;
     padding: 50px 0;
 }
-
-/* Estilos existentes */
 
 @media screen and (max-width: 80rem){
     #title1 {
