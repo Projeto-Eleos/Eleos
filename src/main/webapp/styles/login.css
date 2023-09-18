@@ -146,6 +146,18 @@ a{
     padding: 50px 0;
 }
 
+.place{
+    display: flexbox;
+    justify-items: flex-start;
+    justify-content: space-between;
+}
+
+.toleft{
+    display: flex;
+    justify-self: left;
+}
+
+
 @media screen and (max-width: 80rem){
     #title1 {
         font-size: 3rem;

@@ -23,8 +23,13 @@
             </div>
             <div class="input-box">
               <label for="senha">Senha:</label>
-              <input type="password" class="input-field" name="password" placeholder="Digite sua senha" required>
-              <i class='bx bx-lock-open-alt' ></i>
+              <div class="place">
+                <div class="toleft">
+                  <i class='bx bx-lock-open-alt' id="cadeado"></i>
+                  <input type="password" class="input-field" name="password" placeholder="Digite sua senha" required>
+                </div>
+                <i class="bx" id="ver_desver"><img width="15" height="15" src="public/images/closed-eye.png" alt="visible--v2" id="imagem"></i>
+              </div>
             </div>
             <a href="password-recover.html">Esqueceu sua senha?</a>
             <div class="input-box">
@@ -43,5 +48,18 @@
         </div>
       </div>
     </main>
+    <script>
+      const icone = document.querySelector("#ver_desver");
+      const passwordInput = document.querySelector('[name="password"]');
+      icone.addEventListener("click", () => {
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          icone.innerHTML = '<img width="15" height="15" src="public/images/eye.png" alt="visible--v2" id="imagem">';
+        } else {
+          passwordInput.type = 'password';
+          icone.innerHTML = '<img width="15" height="15" src="public/images/closed-eye.png" alt="closed eye" id="imagem">';
+        }
+      });
+    </script>
 </body>
 </html>
