@@ -19,21 +19,21 @@
             <div class="input-box">
               <label for="email">Email:</label>
               <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" required>
-              <i class="bx bx-envelope"></i>
+              <i class="bx bx-envelope"></i><br>
+              <span class="error-tooltip" id="email-error">Email inválido.</span>
             </div>
             <div class="input-box">
               <label for="senha">Senha:</label>
-              <div class="place">
-                <div class="toleft">
-                  <i class='bx bx-lock-open-alt' id="cadeado"></i>
-                  <input type="password" class="input-field" name="password" placeholder="Digite sua senha" required>
-                </div>
-                <i class="bx" id="ver_desver"><img width="15" height="15" src="public/images/closed-eye.png" alt="visible--v2" id="imagem"></i>
+              <div class="password-input">
+                <i class='bx bx-lock-open-alt' id="cadeado"></i>
+                <input type="password" class="input-field password" name="password" placeholder="Digite sua senha" required>
+                <i class="custom-icon" id="ver_desver"><img src="public/images/closed-eye.png" alt=""></i>
+                <span class="error-tooltip" id="senha-error">Senha incorreta.</span>
               </div>
             </div>
             <a href="password-recover.html">Esqueceu sua senha?</a>
             <div class="input-box">
-              <input type="submit" class="submit" value="Entrar">
+              <input type="submit" class="submit" value="Entrar" id="button">
             </div>  
         </form>
       </div>
@@ -49,17 +49,75 @@
       </div>
     </main>
     <script>
+      //Botão para exibir e esconder a senha
       const icone = document.querySelector("#ver_desver");
       const passwordInput = document.querySelector('[name="password"]');
+      const imagem = document.querySelector("img")
       icone.addEventListener("click", () => {
         if (passwordInput.type === 'password') {
           passwordInput.type = 'text';
-          icone.innerHTML = '<img width="15" height="15" src="public/images/eye.png" alt="visible--v2" id="imagem">';
+          imagem.src = "public/images/eye.png"
         } else {
           passwordInput.type = 'password';
-          icone.innerHTML = '<img width="15" height="15" src="public/images/closed-eye.png" alt="closed eye" id="imagem">';
+          imagem.src = "public/images/closed-eye.png"
         }
       });
+
+      const button = document.querySelector("#button")
+
+      //validar e-mail
+      const email = document.querySelector("[name=\"email\"]").value
+      var emailInput = document.querySelector("#email");
+      var emailError = document.querySelector("#email-error");
+      if(email.split("@").count(".") == 0){
+        button.addEventListener("click",(e)=>{
+          e.preventDefault();
+          senhaError.style.display = "block";
+          senhaInput.classList.add("input-error");
+        })
+      }else{
+        emailError.style.display = "none";
+        emailInput.classList.remove("input-error");
+      }
+      //validar senha
+      function validarSenha(senha) {
+        
+        if (senha.length < 8) {
+          return false;
+        }
+
+        // Verificar se a senha contém pelo menos um número
+        if (!/[0-9]/.test(senha)) {
+          return false;
+        }
+
+        // Verificar se a senha contém pelo menos uma letra maiúscula
+        if (!/[A-Z]/.test(senha)) {
+          return false;
+        }
+
+        // Verificar se a senha contém pelo menos um caractere especial
+        if (!/[\W_]/.test(senha)) {
+          return false;
+        }
+
+        return true;
+      }
+
+      var senhaInput = document.querySelector("#senha");
+      var senhaError = document.querySelector("#senha-error");
+      const senha = passwordInput.value
+      if (validarSenha(senha)) {
+                senhaError.style.display = "none";
+                senhaInput.classList.remove("input-error");
+            }
+            else{
+              button.addEventListener("click",(e)=>{
+                e.preventDefault();
+                senhaError.style.display = "block";
+                senhaInput.classList.add("input-error");
+                }
+            }
     </script>
 </body>
 </html>
