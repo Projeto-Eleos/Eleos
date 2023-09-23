@@ -11,8 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class PasswordChangeServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String codUser = (String) request.getAttribute("codUser");
         String senhaNova = request.getParameter("senha_nova");
         String confirmSenhaNova = request.getParameter("confirm_senha_nova");

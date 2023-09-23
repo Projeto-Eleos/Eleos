@@ -72,7 +72,7 @@
             <p >O usuário entra em sua conta pessoal no sistema, utilizando seu nome de usuário e senha.</p>
         </div>
         <div class="card">
-            <img class="img-tuto" src="./public//images/Select-cuate.svg" alt="Ilustração de Acesso à Conta">
+            <img class="img-tuto" src="./public//images/Charity-amico.svg" alt="Ilustração de Acesso à Conta">
             <h3>Selecione a Campanha</h3>
             <p >O usuário escolhe a causa que deseja apoiar entre várias opções disponíveis.</p>
         </div>
@@ -82,7 +82,7 @@
             <p >O usuário preenche um pequeno formulário com informações sobre o que deseja doar.</p>
         </div>
         <div class="card">
-            <img class="img-tuto" src="./public/images/Editorial commision-bro.svg" alt="Ilustração de Acesso à Conta">
+            <img class="img-tuto" src="./public/images/Editorial-commision-bro.svg" alt="Ilustração de Acesso à Conta">
             <h3>Verificação e orientações</h3>
             <p >Após o envio do formulário, a equipe do Eleos realiza a verificação das informações fornecidas.</p>
         </div>
