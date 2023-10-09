@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +66,10 @@
                             <input type="password" class="input-field" name="confirm-password" placeholder="Confirme sua senha" required>
                             <i class='bx bx-lock-alt' ></i>
                         </div>
+                        <%if(request.getAttribute("erros").isBlank())%{>
+                        
+                        
+
                         <div class="two-col">
                             <div class="one">
                                 <input type="checkbox" name="conditions-and-terms" id="termos">
