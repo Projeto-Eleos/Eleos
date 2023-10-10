@@ -24,13 +24,6 @@ public class RestricWords {
     }
 
     public static void PopulaSet(){
-        restricWords.add("cu");
-        restricWords.add("c*");
-        restricWords.add("puta");
-        restricWords.add("p*ta");
-        restricWords.add("put*");
-        restricWords.add("p*t*");
-        restricWords.add("crlh");
-        restricWords.add("caralho");
+        
     }
 }
