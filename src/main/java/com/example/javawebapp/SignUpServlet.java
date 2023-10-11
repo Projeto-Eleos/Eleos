@@ -15,14 +15,14 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "signUp", value = "/signUp")
 public class SignUpServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        String firstname = req.getParameter("firstname");
-        String lastname = req.getParameter("lastname");
-        String phone = req.getParameter("phone");
-        String cpf = req.getParameter("cpf");
-        String email = req.getParameter("email");
-        String birthdate = req.getParameter("birthdate");
-        String password = req.getParameter("password");
-        String confirmPassword = req.getParameter("confirm-password");
+        String firstname = req.getParameter("firstname").strip();
+        String lastname = req.getParameter("lastname").strip();
+        String phone = req.getParameter("phone").strip();
+        String cpf = req.getParameter("cpf").strip();
+        String email = req.getParameter("email").strip();
+        String birthdate = req.getParameter("birthdate").strip();
+        String password = req.getParameter("password").strip();
+        String confirmPassword = req.getParameter("confirm-password").strip();
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); dateFormat.setLenient(false);
         Date birthdateDate = null;
@@ -32,13 +32,13 @@ public class SignUpServlet extends HttpServlet {
             res.sendError(0, e.getMessage());
         }
         
-        var user = Donor.singUpDonnor(phone, email, password, firstname, lastname, cpf, false, birthdateDate);
+        var user = Donor.singUpDonnor(phone, email, password, firstname, lastname, cpf, false, birthdateDate, confirmPassword);
         if(! (user instanceof Donor)){
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/sing-up.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("./sign-up.jsp");
             req.setAttribute("erros", user);
             dispatcher.forward(req, res);
         }else{
-            res.sendRedirect("/sing-in.html");
+            res.sendRedirect("./sign-in.html");
         }    
     }
 }

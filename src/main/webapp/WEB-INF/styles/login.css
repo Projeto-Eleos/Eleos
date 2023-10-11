@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+main {
+    display: flex;
+    width: 100%;
+}
+
+.left-side, .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.left-side {
+    background-color: #ffffff; /* Cor de fundo no lado esquerdo */
+}
+
+.right-side {
+    background-color: #09C184; /* Cor de fundo no lado direito */
+    color: #fff;
+}
+
+.content {
+    text-align: center;
+    max-width: 45%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+#title1 {
+    font-size: 64px;
+    color: #09C184;
+    font-weight: bold;
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+a{
+    color: #000;
+}
+
+.input-field {
+    font-size: 16px;
+    background-color: #ECECEC;
+    height: 50px;
+    width: 105%;
+    padding: 0 53px 0 40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: .2s ease;
+}
+
+.input-box > label {
+    color: #404040;
+    font-weight: 500;
+}
+
+.input-field:hover, .input-field:focus {
+    background-color: #e1e1e1;
+}
+
+::-webkit-input-placeholder {
+    color: #BFBFBF
+}
+
+.input-box {
+    text-align: justify;
+}
+
+.input-box i {
+    position: relative;
+    bottom: 34px;
+    left: 10px;
+    color: #BFBFBF;
+}
+
+.submit {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #09C184;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+}
+
+.submit:hover {
+    background-color: #0A8967;
+}
+
+#title2 {
+    color: #fff;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.submit2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    border: 3px solid #fff;
+    background-color: #09C184;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+}
+
+.submit2:hover {
+    background-color: #fff;
+    color: #09C184;
+}
+
+#subtitle {
+    font-size: 32px;
+    padding: 50px 0;
+}
+
+.input-box .password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-box .password-input .input-field {
+    flex: 1;
+    padding-right: 40px; 
+    padding-left: 40px; 
+  }
+  
+  .input-box .password-input .bx {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  #cadeado {
+    top: 15px;
+    left: 10px; 
+  }
+  
+  .bx {
+    font-size: 20px; 
+  }
+  
+  
+  #ver_desver {
+    top: 1px;
+    display: inline;
+  }
+  
+  .input-field:hover + #ver_desver {
+    display: inline-block;
+  }
+  .input-field:focus + #ver_desver {
+    display: inline-block;
+  }
+  
+img{
+    height: 20px;
+    width: 20px;
+}
+  
+#button{
+    position: relative;
+    top:25px;
+}
+
+.error-tooltip {
+    display: none;
+    opacity: 80%;
+    background-color: red;
+    font-size: 12px;
+}
+
+/* Estilo para realçar o campo de entrada com erro */
+.input-error {
+    border: 1px solid red;
+
+@media screen and (max-width: 80rem){
+    #title1 {
+        font-size: 3rem;
+    }
+
+    .left-side > .content > p {
+        font-size: 1.10rem;
+    }
+}
+
+@media screen and (max-width: 64rem) {
+    .right-side {
+        display: none;
+    }
+}
+
+}

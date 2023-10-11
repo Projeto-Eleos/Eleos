@@ -31,6 +31,17 @@
                 <span class="error-tooltip" id="senha-error">Senha incorreta.</span>
               </div>
             </div>
+            <% 
+                            String errors = (String) request.getAttribute("erros");
+                            if (errors != null && !errors.isBlank()) {   
+                                String[] erroArray = errors.split(";");
+                                for (String erro : erroArray) {
+                            %>
+                                <span id="erro"><%= erro %></span>
+                            <%
+                                }
+                            }
+                        %>
             <a href="password-recover.html">Esqueceu sua senha?</a>
             <div class="input-box">
               <input type="submit" class="submit" value="Entrar" id="button">

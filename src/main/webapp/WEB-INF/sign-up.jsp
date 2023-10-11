@@ -66,10 +66,18 @@
                             <input type="password" class="input-field" name="confirm-password" placeholder="Confirme sua senha" required>
                             <i class='bx bx-lock-alt' ></i>
                         </div>
-                        <%if(request.getAttribute("erros").isBlank())%{>
-                        
-                        
-
+                        <% 
+                            String errors = (String) request.getAttribute("erros");
+                            if (errors != null && !errors.isBlank()) {   
+                                String[] erroArray = errors.split(";");
+                                for (String erro : erroArray) {
+                            %>
+                                <span class="erros"><%= erro %></span>
+                            <%
+                                }
+                            }
+                        %>
+  
                         <div class="two-col">
                             <div class="one">
                                 <input type="checkbox" name="conditions-and-terms" id="termos">

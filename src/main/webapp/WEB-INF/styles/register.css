@@ -124,6 +124,13 @@ b:hover{
     padding-bottom: 20px;
 }
 
+.erros{
+    display: block;
+    color: #db0606; 
+    font-weight: 500; 
+    padding: 5px 10px;
+}
+
 /* Para telas menores que 768px (smartphones em modo retrato) */
 @media screen and (max-width: 768px) {
     .form-box {
@@ -180,13 +187,6 @@ b:hover{
     .submit {
         height: 38px;
         font-size: 16px;
-    }
-    
-    #erro{
-        display: none;
-        color: #db0606; 
-        font-weight: 500; 
-        padding: 5px 10px;
     }
 
 }
