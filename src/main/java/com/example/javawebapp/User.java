@@ -25,14 +25,17 @@ public abstract class User {
     public static String logar(String email, String senha){
         String error = "";
         if(!checkEmail(email)){
-             error = "Email inválido";
+             error = "Email inválido!;";
         }
         if(!checkSenha(senha)){
-            error = ";Senha inválida!";
+            error += "Senha inválida!";
         }
         //TO-DO ir buscar no banco um usuário com estes dados
-        return error;
-        
+        if(error.isBlank()){
+            return null;
+        }else{
+            return error;
+        }
     }
 
     public static boolean checkEmail(String email){

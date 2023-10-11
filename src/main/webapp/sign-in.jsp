@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +19,15 @@
             <p>Faça login e ajude a fazer a diferença!</p>
             <div class="input-box">
               <label for="email">Email:</label>
-              <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" required>
+              <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" value="${email}" required>
               <i class="bx bx-envelope"></i><br>
-              <span class="error-tooltip" id="email-error">Email inválido.</span>
             </div>
             <div class="input-box">
               <label for="senha">Senha:</label>
               <div class="password-input">
                 <i class='bx bx-lock-open-alt' id="cadeado"></i>
-                <input type="password" class="input-field password" name="password" placeholder="Digite sua senha" required>
+                <input type="password" class="input-field password" name="password" placeholder="Digite sua senha" value="${senha}" required>
                 <i class="custom-icon" id="ver_desver"><img src="public/images/closed-eye.png" alt=""></i>
-                <span class="error-tooltip" id="senha-error">Senha incorreta.</span>
               </div>
             </div>
             <% 
@@ -37,11 +36,12 @@
                                 String[] erroArray = errors.split(";");
                                 for (String erro : erroArray) {
                             %>
-                                <span id="erro"><%= erro %></span>
+                            <span class="error-tooltip" id="email-error"><%= erro %></span><br><br>
                             <%
                                 }
                             }
                         %>
+            <br>
             <a href="password-recover.html">Esqueceu sua senha?</a>
             <div class="input-box">
               <input type="submit" class="submit" value="Entrar" id="button">
@@ -54,7 +54,7 @@
             <h1 id="title2">É novo aqui?</h1>
             <p id="subtitle">Junte-se à comunidade do Eleos! Crie sua conta e comece a fazer a diferença!</p>
           <div class="input-box">
-            <a href="sign-up.html"><input type="submit" class="submit2" value="Comece por aqui"></a>
+            <a href="sign-up.jsp"><input type="submit" class="submit2" value="Comece por aqui"></a>
           </div> 
         </div>
       </div>

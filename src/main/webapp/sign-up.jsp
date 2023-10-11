@@ -19,41 +19,53 @@
                     <div class="top">
                         <h1>Primeira vez por aqui?</h1>
                         <p>Estamos felizes em recebê-lo no <b>Eleos</b>, um lugar onde a generosidade encontra o poder de transformar vidas. Ao criar sua conta, você terá acesso a uma plataforma que conecta doadores como você às ONGs que estão fazendo um impacto real no mundo. Vamos começar a fazer a diferença juntos!</p>
-                        <span>Já tem uma conta? <a href="sign-in.html" onclick="login()">Login</a></span>
+                        <span>Já tem uma conta? <a href="sign-in.jsp" onclick="login()">Login</a></span>
                     </div>
+                    <% 
+                            String errors = (String) request.getAttribute("erros");
+                            if (errors != null && !errors.isBlank()) {   
+                                String[] erroArray = errors.split(";");
+                                for (String erro : erroArray) {
+                            %>
+                                <span class="erros"><%= erro %></span>
+                            <%
+                                }
+                            }
+                        %>
                     <form method="POST" action="signUp">
                         <div class="two-forms">
                             <div class="input-box">
                                 <label for="nome">Nome:</label>
-                                <input type="text" class="input-field" name="firstname" placeholder="Digite seu nome" required>
+                                <input type="text" class="input-field" name="firstname" placeholder="Digite seu nome"
+                                value="${nome}" required>
                                 <i class="bx bx-user"></i>
                             </div>
                             <div class="input-box">
                                 <label for="sobrenome">Sobrenome:</label>
-                                <input type="text" class="input-field" name="lastname" placeholder="Digite seu sobrenome" required>
+                                <input type="text" class="input-field" name="lastname" placeholder="Digite seu sobrenome" value="${sobrenome}" required>
                                 <i class='bx bx-user-circle'></i>
                             </div>
                         </div>
                         <div class="two-forms">
                             <div class="input-box">
                                 <label for="telefone">Telefone:</label>
-                                <input type="text" class="input-field" name="phone" placeholder="Digite seu telefone" required>
+                                <input type="text" class="input-field" name="phone" placeholder="Digite seu telefone" value="${telefone}" required>
                                 <i class="bx bx-support"></i>
                             </div>
                             <div class="input-box">
                                 <label for="cpf">CPF:</label>
-                                <input type="text" class="input-field" name="cpf" placeholder="Digite seu CPF" required>
+                                <input type="text" class="input-field" name="cpf" placeholder="Digite seu CPF" value="${cpf}" required>
                                 <i class='bx bx-user-circle'></i>
                             </div>
                         </div>
                         <div class="input-box">
                             <label for="email">Email:</label>
-                            <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" required>
+                            <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" value="${email}" required>
                             <i class="bx bx-envelope"></i>
                         </div>
                         <div class="input-box">
                             <label for="date">Data de Nascimento:</label>
-                            <input type="date" class="input-field" name="birthdate" placeholder="Data de nascimento" required>
+                            <input type="date" class="input-field" name="birthdate" placeholder="Data de nascimento"  value="${birthdate}" required>
                             <i class='bx bxs-calendar' ></i>
                         </div>
                         <div class="input-box">
@@ -66,17 +78,7 @@
                             <input type="password" class="input-field" name="confirm-password" placeholder="Confirme sua senha" required>
                             <i class='bx bx-lock-alt' ></i>
                         </div>
-                        <% 
-                            String errors = (String) request.getAttribute("erros");
-                            if (errors != null && !errors.isBlank()) {   
-                                String[] erroArray = errors.split(";");
-                                for (String erro : erroArray) {
-                            %>
-                                <span class="erros"><%= erro %></span>
-                            <%
-                                }
-                            }
-                        %>
+                        
   
                         <div class="two-col">
                             <div class="one">

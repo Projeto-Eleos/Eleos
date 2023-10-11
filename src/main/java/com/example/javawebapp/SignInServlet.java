@@ -1,6 +1,7 @@
 package com.example.javawebapp;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -15,14 +16,16 @@ public class SignInServlet extends HttpServlet {
         String email = req.getParameter("email").strip();
         String password = req.getParameter("password").strip();
         
-        String errors = User.logar(email, password);
-        if( errors.isBlank()){
+        var errors = User.logar(email, password);
+        if( errors == null){
             RequestDispatcher dispatcher = req.getRequestDispatcher("./welcome.jsp");
             req.setAttribute("email", email);
             dispatcher.forward(req, res);
         }else{
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/sing-in.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/sign-in.jsp");
             req.setAttribute("erros", errors);
+            req.setAttribute("email", email);
+            req.setAttribute("senha", password);
             dispatcher.forward(req, res);
         } 
     }

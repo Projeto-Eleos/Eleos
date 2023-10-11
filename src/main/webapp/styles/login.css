@@ -198,10 +198,10 @@ img{
 }
 
 .error-tooltip {
-    display: none;
-    opacity: 80%;
-    background-color: red;
-    font-size: 12px;
+    color: #db0606; 
+    font-weight: 500; 
+    padding: 5px 10px;
+    text-align: left; 
 }
 
 /* Estilo para realçar o campo de entrada com erro */

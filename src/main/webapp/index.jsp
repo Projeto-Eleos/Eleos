@@ -16,8 +16,8 @@
             <a class="active" href="#home">Página Inicial</a>
             <a id="item" href="./campaigns.html">Campanhas</a>
             <a id="item" href="./contacts.html">Contato</a>
-            <a  href="./sign-in.html" class="login">Login</a>
-            <a href="./sign-up.html" class="cadastro">Cadastre-se</a>
+            <a  href="./sign-in.jsp" class="login">Login</a>
+            <a href="./sign-up.jsp" class="cadastro">Cadastre-se</a>
         </div>
     </header>
     <div class="conteiner">

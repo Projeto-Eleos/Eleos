@@ -23,7 +23,13 @@ public class SignUpServlet extends HttpServlet {
         String birthdate = req.getParameter("birthdate").strip();
         String password = req.getParameter("password").strip();
         String confirmPassword = req.getParameter("confirm-password").strip();
-
+        String terms = req.getParameter("conditions-and-terms");
+        boolean aceptedTerms;
+        if(terms == null){
+            aceptedTerms = false;
+        }else{
+            aceptedTerms = true;
+        }
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); dateFormat.setLenient(false);
         Date birthdateDate = null;
         try{
@@ -33,12 +39,20 @@ public class SignUpServlet extends HttpServlet {
         }
         
         var user = Donor.singUpDonnor(phone, email, password, firstname, lastname, cpf, false, birthdateDate, confirmPassword);
-        if(! (user instanceof Donor)){
+        if(! (user instanceof Donor) || ! (aceptedTerms)){
             RequestDispatcher dispatcher = req.getRequestDispatcher("./sign-up.jsp");
+            if(! (aceptedTerms))
+            user += "Aceite os termos para continuar!";
+            req.setAttribute("telefone", phone);
+            req.setAttribute("cpf", cpf);
+            req.setAttribute("sobrenome", lastname);
+            req.setAttribute("nome", firstname);
+            req.setAttribute("email", email);
+            req.setAttribute("dataNascimento", birthdate);
             req.setAttribute("erros", user);
             dispatcher.forward(req, res);
         }else{
-            res.sendRedirect("./sign-in.html");
+            res.sendRedirect("./sign-in.jsp");
         }    
     }
 }

@@ -26,26 +26,26 @@ public class Donor extends User{
         RestricWords validation = new RestricWords();
         String error = "";
         if(!checkEmail(email)){
-             error = "Email inválido";
+             error += "Email inválido!;";
         }
         if(!checkSenha(senha)){
-            error = "Senha inválida!;";
+            error += "Senha inválida!;";
         }
         if(!senha.equals(confirmSenha)){
-            error = "As senhas não coincidem!;";
+            error += "As senhas não coincidem!;";
         }
         if(!validation.checkWords(name)){
-            error = "Nome contém palavras restritas!;";
+            error += "Nome contém palavras restritas!;";
         }
         if(!validation.checkWords(sobrenome)){
-            error = "Sobrenome contém palavras restritas!;";
+            error += "Sobrenome contém palavras restritas!;";
         }
-        if(checkCPF(cpf)){
-            error = "CPF inválido;";
+        if(!checkCPF(cpf)){
+            error += "CPF inválido!;";
         }
         if (!telefone.matches("^\\(\\d{2}\\)\\ \\d+$")) {
-            if (!telefone.matches("[0-9]+")) {
-                error = "\nTelefone inválido, insira apenas números!;";
+            if (!(telefone.matches("[0-9]+") || telefone.length() == 11 || telefone.length() == 10)) {
+                error += "Telefone inválido, insira apenas números!;";
             } else {
                 telefone = telefone.replaceAll("\\(", "");
                 telefone = telefone.replaceAll("\\)", "");
@@ -53,7 +53,7 @@ public class Donor extends User{
             }
         }        
         if(!checkDate(dataNascimento)){
-            error = "\nData inválida!;";
+            error += "Data inválida!;";
         }
         if(error.isBlank()){
             return new Donor(telefone, email, senha, name, sobrenome, cpf, adm, dataNascimento);
