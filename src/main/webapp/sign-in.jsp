@@ -36,7 +36,10 @@
                                 String[] erroArray = errors.split(";");
                                 for (String erro : erroArray) {
                             %>
-                            <span class="error-tooltip" id="email-error"><%= erro %></span><br><br>
+                              <div class="error-box">
+                                <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
+                                <span class="erros"><%= erro %></span>
+                              </div>
                             <%
                                 }
                             }

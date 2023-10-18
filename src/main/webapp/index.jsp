@@ -18,6 +18,7 @@
             <a id="item" href="./contacts.html">Contato</a>
             <a  href="./sign-in.jsp" class="login">Login</a>
             <a href="./sign-up.jsp" class="cadastro">Cadastre-se</a>
+            <a href="./sign-up-ong.jsp" class="cadastro">Cadastrar Ongs</a>
         </div>
     </header>
     <div class="conteiner">

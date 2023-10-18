@@ -13,8 +13,12 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "signIn", value = "/signIn")
 public class SignInServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        String email = req.getParameter("email").strip();
-        String password = req.getParameter("password").strip();
+        String email = req.getParameter("email");
+        email = (email != null) ? email.strip() : null;
+
+        String password = req.getParameter("password");
+        password = (password != null) ? password.strip() : null;
+
         
         var errors = User.logar(email, password);
         if( errors == null){

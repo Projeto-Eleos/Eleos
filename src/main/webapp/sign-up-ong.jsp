@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/register.css">
+    <link rel="stylesheet" href="styles/registerOng.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Cadastro</title>
 </head>
@@ -17,12 +17,12 @@
             <div class="form-box">
                 <div class="register-container">
                     <div class="top">
-                        <h1>Primeira vez por aqui?</h1>
-                        <p>Estamos felizes em recebê-lo no <b>Eleos</b>, um lugar onde a generosidade encontra o poder de transformar vidas. Ao criar sua conta, você terá acesso a uma plataforma que conecta doadores como você às ONGs que estão fazendo um impacto real no mundo. Vamos começar a fazer a diferença juntos!</p>
+                        <h1>Cadastro de Instituições</h1>
+                        <p>Ao registrar sua instituição, você poderá aproveitar os recursos e oportunidades disponíveis para promover ações de caridade e causas significativas. Este é um passo importante para se juntar a nossa comunidade solidária e fazer a diferença.</p>
                         <div style="display: flex; flex-direction: column;">
                             <span>Já tem uma conta? <a href="sign-in.jsp" onclick="login()">Login</a></span>
-                            <span>É uma instituiçao? <a href="sign-up-ong.jsp" onclick="login()">Cadastro de 
-                            Instituiçoes</a></span>
+                            <span>É um doador? <a href="sign-up.jsp" onclick="login()">Cadastro de 
+                            Doadores</a></span>
                         </div>
                     </div>
                     <% 
@@ -39,30 +39,17 @@
                             }
                         }
                     %>
-                    <form method="POST" action="signUp">
+                    <form method="POST" action="signUpOng">
                         <div class="two-forms">
                             <div class="input-box">
-                                <label for="nome">Nome:</label>
-                                <input type="text" class="input-field" name="firstname" placeholder="Digite seu nome"
-                                value="${nome}" required>
+                                <label for="razaoSocial">Razão Social:</label>
+                                <input type="text" class="input-field" name="razaoSocial" placeholder="Digite a razão social" value="${razaoSocial}" required>
                                 <i class="bx bx-user"></i>
                             </div>
                             <div class="input-box">
-                                <label for="sobrenome">Sobrenome:</label>
-                                <input type="text" class="input-field" name="lastname" placeholder="Digite seu sobrenome" value="${sobrenome}" required>
-                                <i class='bx bx-user-circle'></i>
-                            </div>
-                        </div>
-                        <div class="two-forms">
-                            <div class="input-box">
-                                <label for="telefone">Telefone:</label>
-                                <input type="text" class="input-field" name="phone" placeholder="Digite seu telefone" value="${telefone}" required>
-                                <i class="bx bx-support"></i>
-                            </div>
-                            <div class="input-box">
-                                <label for="cpf">CPF:</label>
-                                <input type="text" class="input-field" name="cpf" placeholder="Digite seu CPF" value="${cpf}" required>
-                                <i class='bx bx-user-circle'></i>
+                                <label for="phone">Telefone:</label>
+                                <input type="text" class="input-field" name="phone" placeholder="Telefone de contato" value="${telefone}" required>
+                                <i class='bx bx-phone'></i>
                             </div>
                         </div>
                         <div class="input-box">
@@ -71,9 +58,14 @@
                             <i class="bx bx-envelope"></i>
                         </div>
                         <div class="input-box">
-                            <label for="date">Data de Nascimento:</label>
-                            <input type="date" class="input-field" name="birthdate" placeholder="Data de nascimento"  value="${birthdate}" required>
-                            <i class='bx bxs-calendar' ></i>
+                            <label for="adress">Endereço:</label>
+                            <input type="text" class="input-field" name="adress" placeholder="Digite o endereço da instituição" value="${endereco}" required>
+                            <i class='bx bx-map' ></i>
+                        </div>
+                        <div class="input-box">
+                            <label for="date">CNPJ:</label>
+                            <input type="text" class="input-field" name="cnpj" placeholder="Digite o CNPJ da instituição" value="${CNPJ}" required>
+                            <i class='bx bx-info-circle'></i>
                         </div>
                         <div class="input-box">
                             <label for="senha">Senha:</label>
@@ -85,16 +77,10 @@
                             <input type="password" class="input-field" name="confirm-password" placeholder="Confirme sua senha" required>
                             <i class='bx bx-lock-alt' ></i>
                         </div>
-                        
-  
-                        <div class="two-col">
+                        <div class="col">
                             <div class="one">
                                 <input type="checkbox" name="conditions-and-terms" id="termos">
-                                <label for="termos"> Declaro que li e concordo com os <a href="politics-and-privacity.html">Termos de Uso</a> de “Doações Eleos”.</label>
-                            </div>
-                            <div class="two">
-                                <input type="checkbox" name="notificacions" id="notificacoes">
-                                <label for="notificacoes"> Desejo receber notificações por E-mail relacionadas às minhas doações, atualizações de campanhas e novidades sobre as ONGs.</label>
+                                <label for="termos"> Declaro que li e concordo com os <a href="#">Termos de Uso</a> de “Doações Eleos”.</label>
                             </div>
                             <div class="input-box">
                             <input type="submit" class="submit" value="Criar Conta">

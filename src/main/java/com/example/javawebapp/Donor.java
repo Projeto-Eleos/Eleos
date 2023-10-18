@@ -28,9 +28,9 @@ public class Donor extends User{
         if(!checkEmail(email)){
              error += "Email inválido!;";
         }
-        if(!checkSenha(senha)){
-            error += "Senha inválida!;";
-        }
+        
+        error += checkSenha(senha); //Retorna os erros específicos da senha
+        
         if(!senha.equals(confirmSenha)){
             error += "As senhas não coincidem!;";
         }
@@ -51,10 +51,10 @@ public class Donor extends User{
                 telefone = telefone.replaceAll("\\)", "");
                 telefone = telefone.replaceAll(" ", "");
             }
-        }        
-        if(!checkDate(dataNascimento)){
-            error += "Data inválida!;";
         }
+
+        error += checkDate(dataNascimento);
+        
         if(error.isBlank()){
             return new Donor(telefone, email, senha, name, sobrenome, cpf, adm, dataNascimento);
         }else{
@@ -107,7 +107,11 @@ public class Donor extends User{
         return (digito < 10) ? digito : 0;
     }
 
-    public static boolean checkDate(Date dataNascimento){
+    public static String checkDate(Date dataNascimento){
+        String errors = " ";
+        if(dataNascimento == null){
+            return "Data de nascimento nula!;";
+        }
         Calendar today = Calendar.getInstance();
         Calendar max = Calendar.getInstance();
         Calendar min = Calendar.getInstance();
@@ -119,7 +123,13 @@ public class Donor extends User{
         Calendar dataNascimentoCalendar = Calendar.getInstance();
         dataNascimentoCalendar.setTime(dataNascimento);
     
-        return dataNascimentoCalendar.after(max) && dataNascimentoCalendar.before(min);
+        if(!dataNascimentoCalendar.after(max)){
+            errors += "Verifique o ano de nascimento! Se você tem mais de 124 anos e deseja ser um doador entre em contato conosco!;";
+        }
+        if(!dataNascimentoCalendar.before(min)){
+            errors += "Você precisa ter ao menos 18 anos para se cadastrar!;";
+        }
+        return errors;
     }
 
     public String getName() {

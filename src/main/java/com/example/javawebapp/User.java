@@ -27,9 +27,9 @@ public abstract class User {
         if(!checkEmail(email)){
              error = "Email inválido!;";
         }
-        if(!checkSenha(senha)){
-            error += "Senha inválida!";
-        }
+        
+        error += checkSenha(senha); //Retorna os erros específicos da senha
+        
         //TO-DO ir buscar no banco um usuário com estes dados
         if(error.isBlank()){
             return null;
@@ -51,10 +51,13 @@ public abstract class User {
             return false;
     }
 
-    public static boolean checkSenha(String senha){
-        
-        if (senha.length() < 8 || senha.length() > 32) {
-            return false;
+    public static String checkSenha(String senha){
+        String errors = " ";
+        if (senha.length() < 8) {
+            errors += "A senha não tem 8 carácteres de tamanho;";
+        }
+        if(senha.length() > 16){
+            errors += "A senha tem mais de 16 carácteres de tamanho;";
         }
 
         Pattern lowercasePattern = Pattern.compile("[a-z]");
@@ -65,11 +68,17 @@ public abstract class User {
         Matcher uppercaseMatcher = uppercasePattern.matcher(senha);
         Matcher specialCharMatcher = specialCharPattern.matcher(senha);
 
-        if (!lowercaseMatcher.find() || !uppercaseMatcher.find() || !specialCharMatcher.find()) {
-            return false;
+        if (!lowercaseMatcher.find()) {
+            errors += "A senha não contém ao menos uma letra minúscula!;";
+        }
+        if(!uppercaseMatcher.find()){
+            errors += "A senha não contém ao menos uma letra maiúscula!;";
+        }
+        if(!specialCharMatcher.find()){
+            errors += "A senha não contém ao menos um carácter especial!;";
         }
 
-        return true;
+        return errors;
     }
 
     public boolean checkSenha(){

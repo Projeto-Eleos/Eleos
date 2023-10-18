@@ -5,8 +5,7 @@ import java.util.HashSet;
 public class RestricWords {
     private static HashSet<String> restricWords = new HashSet<String>();  
     public RestricWords(){
-
-        restricWords.add("teste");
+        restricWords.add("restrita");
     }
 
     public static boolean AddWord(String word){
@@ -19,10 +18,12 @@ public class RestricWords {
     }
 
     public boolean checkWords(String phrase){
-        var words= phrase.split(" ");
-        for(String word: words){
-            if(restricWords.contains(word))
-                return false;
+        if(phrase != null){
+            var words= phrase.split(" ");
+            for(String word: words){
+                if(restricWords.contains(word))
+                    return false;
+            }
         }
         return true;
     }

@@ -33,7 +33,9 @@ public class SignUpServlet extends HttpServlet {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); dateFormat.setLenient(false);
         Date birthdateDate = null;
         try{
-            birthdateDate = dateFormat.parse(birthdate);
+            if(birthdate != null){
+                birthdateDate = dateFormat.parse(birthdate);
+            }
         }catch(ParseException e){
             res.sendError(0, e.getMessage());
         }
