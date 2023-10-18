@@ -43,57 +43,55 @@
                         <div class="two-forms">
                             <div class="input-box">
                                 <label for="nome">Nome:</label>
-                                <input type="text" class="input-field" name="firstname" placeholder="Digite seu nome"
-                                value="${nome}" required>
+                                <input type="text" class="input-field" name="firstname" placeholder="Digite seu nome" value="${nome}" autocomplete="given-name" maxlength="255">
                                 <i class="bx bx-user"></i>
                             </div>
                             <div class="input-box">
                                 <label for="sobrenome">Sobrenome:</label>
-                                <input type="text" class="input-field" name="lastname" placeholder="Digite seu sobrenome" value="${sobrenome}" required>
+                                <input type="text" class="input-field" name="lastname" placeholder="Digite seu sobrenome" value="${sobrenome}" autocomplete="last-name" maxlength="255">
                                 <i class='bx bx-user-circle'></i>
                             </div>
                         </div>
                         <div class="two-forms">
                             <div class="input-box">
-                                <label for="telefone">Telefone:</label>
-                                <input type="text" class="input-field" name="phone" placeholder="Digite seu telefone" value="${telefone}" required>
+                                <label for="phone">Telefone:</label>
+                                <input type="text" class="input-field" id="phone"  name="phone" placeholder="Digite seu telefone" value="${telefone}" autocomplete="tel" maxlength="255">
                                 <i class="bx bx-support"></i>
                             </div>
                             <div class="input-box">
                                 <label for="cpf">CPF:</label>
-                                <input type="text" class="input-field" name="cpf" placeholder="Digite seu CPF" value="${cpf}" required>
+                                <input type="text" class="input-field" id="cpf" name="cpf" placeholder="Digite seu CPF" value="${cpf}" autocomplete="on">
                                 <i class='bx bx-user-circle'></i>
                             </div>
                         </div>
                         <div class="input-box">
                             <label for="email">Email:</label>
-                            <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" value="${email}" required>
+                            <input type="email" class="input-field" id="email" name="email" placeholder="Digite seu endereço de email" value="${email}" autocomplete="email" maxlength="255">
                             <i class="bx bx-envelope"></i>
                         </div>
                         <div class="input-box">
-                            <label for="date">Data de Nascimento:</label>
-                            <input type="date" class="input-field" name="birthdate" placeholder="Data de nascimento"  value="${birthdate}" required>
+                            <label for="birthdate">Data de Nascimento:</label>
+                            <input type="date" class="input-field" id="birthdate" name="birthdate" placeholder="Data de nascimento"  value="${dataNascimento}" autocomplete="bday">
                             <i class='bx bxs-calendar' ></i>
                         </div>
                         <div class="input-box">
-                            <label for="senha">Senha:</label>
-                            <input type="password" class="input-field" name="password" placeholder="Digite sua senha" required>
+                            <label for="password">Senha:</label>
+                            <input type="password" class="input-field" id="password" name="password" placeholder="Digite sua senha" autocomplete="current-password" >
                             <i class='bx bx-lock-open-alt' ></i>
                         </div>
                         <div class="input-box">
-                            <label for="senha">Confirme sua senha:</label>
-                            <input type="password" class="input-field" name="confirm-password" placeholder="Confirme sua senha" required>
+                            <label for="confirm-password">Confirme sua senha:</label>
+                            <input type="password" class="input-field" id="confirm-password" name="confirm-password" placeholder="Confirme sua senha" autocomplete="new-password">
                             <i class='bx bx-lock-alt' ></i>
                         </div>
                         
-  
                         <div class="two-col">
                             <div class="one">
                                 <input type="checkbox" name="conditions-and-terms" id="termos">
                                 <label for="termos"> Declaro que li e concordo com os <a href="politics-and-privacity.html">Termos de Uso</a> de “Doações Eleos”.</label>
                             </div>
                             <div class="two">
-                                <input type="checkbox" name="notificacions" id="notificacoes">
+                                <input type="checkbox" name="notificacions" id="notificacoes" value="${termos}">
                                 <label for="notificacoes"> Desejo receber notificações por E-mail relacionadas às minhas doações, atualizações de campanhas e novidades sobre as ONGs.</label>
                             </div>
                             <div class="input-box">

@@ -43,43 +43,43 @@
                         <div class="two-forms">
                             <div class="input-box">
                                 <label for="razaoSocial">Razão Social:</label>
-                                <input type="text" class="input-field" name="razaoSocial" placeholder="Digite a razão social" value="${razaoSocial}" required>
+                                <input type="text" class="input-field" name="razaoSocial" placeholder="Digite a razão social" value="${razaoSocial}" autocomplete="organization-title" maxlength="255">
                                 <i class="bx bx-user"></i>
                             </div>
                             <div class="input-box">
                                 <label for="phone">Telefone:</label>
-                                <input type="text" class="input-field" name="phone" placeholder="Telefone de contato" value="${telefone}" required>
+                                <input type="text" class="input-field" name="phone" placeholder="Telefone de contato" value="${telefone}" autocomplete="tel" maxlength="255">
                                 <i class='bx bx-phone'></i>
                             </div>
                         </div>
                         <div class="input-box">
                             <label for="email">Email:</label>
-                            <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" value="${email}" required>
+                            <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" value="${email}" autocomplete="email" maxlength="255">
                             <i class="bx bx-envelope"></i>
                         </div>
                         <div class="input-box">
-                            <label for="adress">Endereço:</label>
-                            <input type="text" class="input-field" name="adress" placeholder="Digite o endereço da instituição" value="${endereco}" required>
+                            <label for="address">Endereço:</label>
+                            <input type="text" class="input-field" name="address" placeholder="Digite o endereço da instituição" value="${endereco}" autocomplete="address-level1" maxlength="255">
                             <i class='bx bx-map' ></i>
                         </div>
                         <div class="input-box">
                             <label for="date">CNPJ:</label>
-                            <input type="text" class="input-field" name="cnpj" placeholder="Digite o CNPJ da instituição" value="${CNPJ}" required>
+                            <input type="text" class="input-field" name="cnpj" placeholder="Digite o CNPJ da instituição" value="${CNPJ}" autocomplete="on">
                             <i class='bx bx-info-circle'></i>
                         </div>
                         <div class="input-box">
                             <label for="senha">Senha:</label>
-                            <input type="password" class="input-field" name="password" placeholder="Digite sua senha" required>
+                            <input type="password" class="input-field" name="password" placeholder="Digite sua senha" autocomplete="current-password" maxlength="255">
                             <i class='bx bx-lock-open-alt' ></i>
                         </div>
                         <div class="input-box">
                             <label for="senha">Confirme sua senha:</label>
-                            <input type="password" class="input-field" name="confirm-password" placeholder="Confirme sua senha" required>
+                            <input type="password" class="input-field" name="confirm-password" placeholder="Confirme sua senha" autocomplete="new-password" maxlength="255">
                             <i class='bx bx-lock-alt' ></i>
                         </div>
                         <div class="col">
                             <div class="one">
-                                <input type="checkbox" name="conditions-and-terms" id="termos">
+                                <input type="checkbox" name="conditions-and-terms" id="termos" value="${termos}">
                                 <label for="termos"> Declaro que li e concordo com os <a href="#">Termos de Uso</a> de “Doações Eleos”.</label>
                             </div>
                             <div class="input-box">

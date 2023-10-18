@@ -1,8 +1,8 @@
 package com.example.javawebapp;
 
-import java.util.Date;
 import java.util.HashSet;
-import java.util.Calendar;
+import java.util.List;
+import java.util.Arrays;
 
 public class Organization extends User{
     private static int ultimoId = 0;
@@ -23,6 +23,16 @@ public class Organization extends User{
     public static Object singUpOrganization(String telefone, String email, String senha, String razaoSocial, String cnpj, String endereco, String confirmSenha){
         RestricWords validation = new RestricWords();
         String error = "";
+
+        String isNull = fieldIsNull(telefone, email, senha, razaoSocial, cnpj, endereco, confirmSenha);
+        if (!isNull.isBlank()) {
+            List<String> campos = Arrays.asList("telefone", "email", "senha", "razaoSocial", "cnpj", "endereco", "confirmSenha");
+            String mensagemErro = formatErrors(campos, isNull);
+            if (mensagemErro.isEmpty()){
+                return mensagemErro;
+            }
+        }
+
         if(!checkEmail(email)){
              error += "Email inválido!;";
         }

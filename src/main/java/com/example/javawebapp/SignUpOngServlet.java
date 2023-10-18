@@ -15,44 +15,28 @@ public class SignUpOngServlet extends HttpServlet {
         String razaoSocial = req.getParameter("razaoSocial");
         razaoSocial = (razaoSocial != null) ? razaoSocial.strip() : null;
 
-        String phone = req.getParameter("phone");
-        phone = (phone != null) ? phone.strip() : null;
+        String phone = (req.getParameter("phone") != null) ? req.getParameter("phone").strip() : null;
+        String address = (req.getParameter("address") != null) ? req.getParameter("address").strip() : null;
+        String CNPJ = (req.getParameter("cnpj") != null) ? req.getParameter("cnpj").strip() : null;
+        String email = (req.getParameter("email") != null) ? req.getParameter("email").strip() : null;
+        String password = (req.getParameter("password") != null) ? req.getParameter("password").strip() : null;
+        String confirmPassword = (req.getParameter("confirm-password") != null) ? req.getParameter("confirm-password").strip() : null;
 
-        String adress = req.getParameter("adress");
-        adress = (adress != null) ? adress.strip() : null;
 
-        String CNPJ = req.getParameter("cnpj");
-        CNPJ = (CNPJ != null) ? CNPJ.strip() : null;
-
-        String email = req.getParameter("email");
-        email = (email != null) ? email.strip() : null;
-
-        String password = req.getParameter("password");
-        password = (password != null) ? password.strip() : null;
-
-        String confirmPassword = req.getParameter("confirm-password");
-        confirmPassword = (confirmPassword != null) ? confirmPassword.strip() : null;
-
-        String terms = req.getParameter("conditions-and-terms");
-        boolean aceptedTerms;
+        boolean acceptedTerms = req.getParameter("conditions-and-terms") != null;
         
-        if(terms == null){
-            aceptedTerms = false;
-        }else{
-            aceptedTerms = true;
-        }
+        var user = Organization.singUpOrganization(phone, email, password, razaoSocial, CNPJ, address, confirmPassword);
         
-        var user = Organization.singUpOrganization(phone, email, password, razaoSocial, CNPJ, adress, confirmPassword);
-        
-        if(! (user instanceof Organization) || ! (aceptedTerms)){
+        if(! (user instanceof Organization) || ! (acceptedTerms)){
             RequestDispatcher dispatcher = req.getRequestDispatcher("./sign-up-ong.jsp");
-            if(! (aceptedTerms))
+            if(! (acceptedTerms))
             user += "Aceite os termos para continuar!";
             req.setAttribute("telefone", phone);
             req.setAttribute("CNPJ", CNPJ);
-            req.setAttribute("endereco", adress);
+            req.setAttribute("endereco", address);
             req.setAttribute("razaoSocial", razaoSocial);
             req.setAttribute("email", email);
+            req.setAttribute("termos", acceptedTerms);
             req.setAttribute("erros", user);
             dispatcher.forward(req, res);
         }else{

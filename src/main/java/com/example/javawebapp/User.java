@@ -1,5 +1,6 @@
 package com.example.javawebapp;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,19 +9,6 @@ public abstract class User {
     private String telefone;
     private String email;
     private String senha;
-
-    public boolean checkEmail(){
-            if(this.email.length() > 9 && this.email.contains("@"))
-            {
-                String finalEmail = this.email.split("@")[1];
-                if(finalEmail.contains(".") && finalEmail.length() > 3 ){
-                    if(finalEmail.charAt(0) != '.' && finalEmail.charAt(finalEmail.length() - 1) != '.'){
-                        return true;
-                    }
-                } 
-            }
-            return false;
-    }
 
     public static String logar(String email, String senha){
         String error = "";
@@ -51,56 +39,69 @@ public abstract class User {
             return false;
     }
 
-    public static String checkSenha(String senha){
-        String errors = " ";
+    public static String checkSenha(String senha) {
+        StringBuilder errors = new StringBuilder();
+    
         if (senha.length() < 8) {
-            errors += "A senha não tem 8 carácteres de tamanho;";
+            errors.append("A senha não tem 8 caracteres de tamanho!;");
         }
-        if(senha.length() > 16){
-            errors += "A senha tem mais de 16 carácteres de tamanho;";
+    
+        if (senha.length() > 16) {
+            errors.append("A senha tem mais de 16 caracteres de tamanho!;");
         }
-
+    
         Pattern lowercasePattern = Pattern.compile("[a-z]");
         Pattern uppercasePattern = Pattern.compile("[A-Z]");
         Pattern specialCharPattern = Pattern.compile("[!@#$%^&*(),.?\":{}|<>]");
-
+    
         Matcher lowercaseMatcher = lowercasePattern.matcher(senha);
         Matcher uppercaseMatcher = uppercasePattern.matcher(senha);
         Matcher specialCharMatcher = specialCharPattern.matcher(senha);
-
+    
         if (!lowercaseMatcher.find()) {
-            errors += "A senha não contém ao menos uma letra minúscula!;";
+            errors.append("A senha não contém ao menos uma letra minúscula!;");
         }
-        if(!uppercaseMatcher.find()){
-            errors += "A senha não contém ao menos uma letra maiúscula!;";
-        }
-        if(!specialCharMatcher.find()){
-            errors += "A senha não contém ao menos um carácter especial!;";
-        }
-
-        return errors;
-    }
-
-    public boolean checkSenha(){
         
-        if (this.senha.length() < 8 || this.senha.length() > 32) {
-            return false;
+        if (!uppercaseMatcher.find()) {
+            errors.append("A senha não contém ao menos uma letra maiúscula!;");
         }
-
-        Pattern lowercasePattern = Pattern.compile("[a-z]");
-        Pattern uppercasePattern = Pattern.compile("[A-Z]");
-        Pattern specialCharPattern = Pattern.compile("[!@#$%^&*(),.?\":{}|<>]");
-
-        Matcher lowercaseMatcher = lowercasePattern.matcher(this.senha);
-        Matcher uppercaseMatcher = uppercasePattern.matcher(this.senha);
-        Matcher specialCharMatcher = specialCharPattern.matcher(this.senha);
-
-        if (!lowercaseMatcher.find() || !uppercaseMatcher.find() || !specialCharMatcher.find()) {
-            return false;
+        
+        if (!specialCharMatcher.find()) {
+            errors.append("A senha não contém ao menos um caractere especial!;");
         }
-
-        return true;
+    
+        return errors.toString();
     }
+
+    public static String fieldIsNull(Object... args) {
+        StringBuilder nulos = new StringBuilder();
+        int i = 0;
+        for (Object campo : args) {
+            i++;
+            if (campo == null) {
+                nulos.append(String.format("Campo %d é nulo", i));
+            }
+        }
+        return nulos.toString();
+    }   
+    
+    public static String formatErrors(List<String> campos, String isNull) {
+    if (!isNull.isBlank()) {
+        String[] camposNulos = isNull.split(";");
+        StringBuilder camposNulosCorretos = new StringBuilder();
+
+        for (String campoNulo : camposNulos) {
+            int numCampo = Integer.parseInt(campoNulo.replaceAll("[^0-9]", ""));
+            String campoCorrespondente = campos.get(numCampo - 1);
+            camposNulosCorretos.append(String.format("Campo %s está nulo;", campoCorrespondente));
+        }
+
+        return camposNulosCorretos.toString();
+    }
+
+    return "";
+}
+
     
     public User(String telefone, String email, String senha) {
         this.telefone = telefone;

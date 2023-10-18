@@ -15,35 +15,35 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "signUp", value = "/signUp")
 public class SignUpServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        String firstname = req.getParameter("firstname").strip();
-        String lastname = req.getParameter("lastname").strip();
-        String phone = req.getParameter("phone").strip();
-        String cpf = req.getParameter("cpf").strip();
-        String email = req.getParameter("email").strip();
-        String birthdate = req.getParameter("birthdate").strip();
-        String password = req.getParameter("password").strip();
-        String confirmPassword = req.getParameter("confirm-password").strip();
-        String terms = req.getParameter("conditions-and-terms");
-        boolean aceptedTerms;
-        if(terms == null){
-            aceptedTerms = false;
-        }else{
-            aceptedTerms = true;
-        }
+        String firstname = req.getParameter("firstname") != null ? req.getParameter("firstname").strip() : null;
+        String lastname = req.getParameter("lastname") != null ? req.getParameter("lastname").strip() : null;
+        String phone = req.getParameter("phone") != null ? req.getParameter("phone").strip() : null;
+        String cpf = req.getParameter("cpf") != null ? req.getParameter("cpf").strip() : null;
+        String email = req.getParameter("email") != null ? req.getParameter("email").strip() : null;
+        String birthdate = req.getParameter("birthdate") != null ? req.getParameter("birthdate").strip() : null;
+        String password = req.getParameter("password") != null ? req.getParameter("password").strip() : null;
+        String confirmPassword = req.getParameter("confirm-password") != null ? req.getParameter("confirm-password").strip() : null;
+
+        boolean acceptedTerms = req.getParameter("conditions-and-terms") != null;
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); dateFormat.setLenient(false);
         Date birthdateDate = null;
-        try{
-            if(birthdate != null){
-                birthdateDate = dateFormat.parse(birthdate);
+        try {
+            if (birthdate != null && !birthdate.isEmpty()) {
+                if (birthdate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                    birthdateDate = dateFormat.parse(birthdate);
+                } else {
+                    throw new ParseException("Data de nascimento em formato inválido", 0);
+                }
             }
-        }catch(ParseException e){
-            res.sendError(0, e.getMessage());
+        } catch (ParseException e) {
+            res.sendError(0, "Erro no formato da data de nascimento: " + e.getMessage());
         }
-        
-        var user = Donor.singUpDonnor(phone, email, password, firstname, lastname, cpf, false, birthdateDate, confirmPassword);
-        if(! (user instanceof Donor) || ! (aceptedTerms)){
+
+        var user = Donor.signUpDonor(phone, email, password, firstname, lastname, cpf, false, birthdateDate, confirmPassword);
+        if(! (user instanceof Donor) || ! (acceptedTerms)){
             RequestDispatcher dispatcher = req.getRequestDispatcher("./sign-up.jsp");
-            if(! (aceptedTerms))
+            if(! (acceptedTerms))
             user += "Aceite os termos para continuar!";
             req.setAttribute("telefone", phone);
             req.setAttribute("cpf", cpf);
@@ -51,6 +51,7 @@ public class SignUpServlet extends HttpServlet {
             req.setAttribute("nome", firstname);
             req.setAttribute("email", email);
             req.setAttribute("dataNascimento", birthdate);
+            req.setAttribute("termos", acceptedTerms);
             req.setAttribute("erros", user);
             dispatcher.forward(req, res);
         }else{
