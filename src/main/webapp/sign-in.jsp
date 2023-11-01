@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,20 +31,14 @@
                 <i class="custom-icon" id="ver_desver"><img src="public/images/closed-eye.png" alt=""></i>
               </div>
             </div>
-            <% 
-                            String errors = (String) request.getAttribute("erros");
-                            if (errors != null && !errors.isBlank()) {   
-                                String[] erroArray = errors.split(";");
-                                for (String erro : erroArray) {
-                            %>
-                              <div class="error-box">
-                                <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
-                                <span class="erros"><%= erro %></span>
-                              </div>
-                            <%
-                                }
-                            }
-                        %>
+            <c:if test="${erros != null}">
+              <c:forEach var="erro" items="${erros}">
+                  <div class="error-box">
+                      <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
+                      <span class="erros">${erro.propertyPath} - ${erro.message}</span>
+                  </div>
+              </c:forEach>
+            </c:if>  
             <br>
             <a href="password-recover.html">Esqueceu sua senha?</a>
             <div class="input-box">

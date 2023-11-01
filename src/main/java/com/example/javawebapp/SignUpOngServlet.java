@@ -1,6 +1,13 @@
 package com.example.javawebapp;
 
 import java.io.IOException;
+import java.util.Set;
+
+import jakarta.validation.ConstraintViolation;
+
+import com.example.javawebapp.forms.SignUpOngForm;
+import com.example.javawebapp.forms.SignUpUserForm;
+import com.example.javawebapp.forms.ownsvalidations.ValidatorUtil;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -25,19 +32,21 @@ public class SignUpOngServlet extends HttpServlet {
 
         boolean acceptedTerms = req.getParameter("conditions-and-terms") != null;
         
-        var user = Organization.singUpOrganization(phone, email, password, razaoSocial, CNPJ, address, confirmPassword);
+        SignUpOngForm signUpForm = new SignUpOngForm(phone, email, password, confirmPassword, razaoSocial, address, CNPJ);
         
-        if(! (user instanceof Organization) || ! (acceptedTerms)){
+        Set<ConstraintViolation<SignUpOngForm>> violations = ValidatorUtil.validateObject(signUpForm);
+
+        if( !violations.isEmpty() || !acceptedTerms){
             RequestDispatcher dispatcher = req.getRequestDispatcher("./sign-up-ong.jsp");
             if(! (acceptedTerms))
-            user += "Aceite os termos para continuar!";
+            req.setAttribute("termos", "Aceite os termos para continuar!");
             req.setAttribute("telefone", phone);
             req.setAttribute("CNPJ", CNPJ);
             req.setAttribute("endereco", address);
             req.setAttribute("razaoSocial", razaoSocial);
             req.setAttribute("email", email);
             req.setAttribute("termos", acceptedTerms);
-            req.setAttribute("erros", user);
+            req.setAttribute("erros", violations);
             dispatcher.forward(req, res);
         }else{
             res.sendRedirect("./sign-in.jsp");

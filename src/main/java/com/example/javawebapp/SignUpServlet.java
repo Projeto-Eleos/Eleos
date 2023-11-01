@@ -2,6 +2,13 @@ package com.example.javawebapp;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.Set;
+
+import jakarta.validation.ConstraintViolation;
+
+import com.example.javawebapp.forms.SignUpUserForm;
+import com.example.javawebapp.forms.ownsvalidations.ValidatorUtil;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -40,11 +47,14 @@ public class SignUpServlet extends HttpServlet {
             res.sendError(0, "Erro no formato da data de nascimento: " + e.getMessage());
         }
 
-        var user = Donor.signUpDonor(phone, email, password, firstname, lastname, cpf, false, birthdateDate, confirmPassword);
-        if(! (user instanceof Donor) || ! (acceptedTerms)){
+        SignUpUserForm signUpForm = new SignUpUserForm(phone, email, password, confirmPassword, firstname, lastname, cpf, birthdateDate);
+     
+        Set<ConstraintViolation<SignUpUserForm>> violations = ValidatorUtil.validateObject(signUpForm);
+
+        if( !violations.isEmpty() || !acceptedTerms){
             RequestDispatcher dispatcher = req.getRequestDispatcher("./sign-up.jsp");
             if(! (acceptedTerms))
-            user += "Aceite os termos para continuar!";
+            req.setAttribute("termos", "Aceite os termos para continuar!");
             req.setAttribute("telefone", phone);
             req.setAttribute("cpf", cpf);
             req.setAttribute("sobrenome", lastname);
@@ -52,7 +62,7 @@ public class SignUpServlet extends HttpServlet {
             req.setAttribute("email", email);
             req.setAttribute("dataNascimento", birthdate);
             req.setAttribute("termos", acceptedTerms);
-            req.setAttribute("erros", user);
+            req.setAttribute("erros", violations);
             dispatcher.forward(req, res);
         }else{
             res.sendRedirect("./sign-in.jsp");
