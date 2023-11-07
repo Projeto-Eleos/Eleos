@@ -21,8 +21,8 @@
                         <h1>Primeira vez por aqui?</h1>
                         <p>Estamos felizes em recebê-lo no <b>Eleos</b>, um lugar onde a generosidade encontra o poder de transformar vidas. Ao criar sua conta, você terá acesso a uma plataforma que conecta doadores como você às ONGs que estão fazendo um impacto real no mundo. Vamos começar a fazer a diferença juntos!</p>
                         <div style="display: flex; flex-direction: column;">
-                            <span>Já tem uma conta? <a href="sign-in.jsp" onclick="login()">Login</a></span>
-                            <span>É uma instituiçao? <a href="sign-up-ong.jsp" onclick="login()">Cadastro de 
+                            <span>Já tem uma conta? <a href="login" onclick="login()">Login</a></span>
+                            <span>É uma instituiçao? <a href="sign-up-ong" onclick="login()">Cadastro de 
                             Instituiçoes</a></span>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         <div class="two-col">
                             <div class="one">
                                 <input type="checkbox" name="conditions-and-terms" id="termos">
-                                <label for="termos"> Declaro que li e concordo com os <a href="politics-and-privacity.html">Termos de Uso</a> de “Doações Eleos”.</label>
+                                <label for="termos"> Declaro que li e concordo com os <a href="politics-privacity">Termos de Uso</a> de “Doações Eleos”.</label>
                             </div>
                             <div class="two">
                                 <input type="checkbox" name="notificacions" id="notificacoes" value="${termos}">

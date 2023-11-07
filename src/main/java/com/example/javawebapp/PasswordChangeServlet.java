@@ -11,6 +11,11 @@ import jakarta.servlet.http.HttpServletResponse;
 public class PasswordChangeServlet extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("WEB-INF/password-change.jsp").forward(req, res);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String codUser = (String) request.getAttribute("codUser");
         String senhaNova = request.getParameter("senha_nova");

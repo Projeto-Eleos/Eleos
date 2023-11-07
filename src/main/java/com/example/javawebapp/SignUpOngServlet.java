@@ -16,8 +16,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "signUpOng", value = "/signUpOng")
+@WebServlet(name = "signUpOng", value = "/sign-up-ong")
 public class SignUpOngServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("WEB-INF/sign-up-ong.jsp").forward(req, res);
+    }
+
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String razaoSocial = req.getParameter("razaoSocial");
         razaoSocial = (razaoSocial != null) ? razaoSocial.strip() : null;

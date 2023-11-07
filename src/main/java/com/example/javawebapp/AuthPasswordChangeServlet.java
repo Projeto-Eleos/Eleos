@@ -10,8 +10,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "authPasswordChange", value = "/authPasswordChange")
+@WebServlet(name = "authPasswordChange", value = "/auth-password-change")
 public class AuthPasswordChangeServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("WEB-INF/password-recover.jsp").forward(req, res);
+    }
 
     private class GenerateCode{
         public int randomic(){
@@ -19,6 +24,7 @@ public class AuthPasswordChangeServlet extends HttpServlet {
             return randomObj.nextInt(1000000);
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");

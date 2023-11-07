@@ -21,8 +21,8 @@
                         <h1>Cadastro de Instituições</h1>
                         <p>Ao registrar sua instituição, você poderá aproveitar os recursos e oportunidades disponíveis para promover ações de caridade e causas significativas. Este é um passo importante para se juntar a nossa comunidade solidária e fazer a diferença.</p>
                         <div style="display: flex; flex-direction: column;">
-                            <span>Já tem uma conta? <a href="sign-in.jsp" onclick="login()">Login</a></span>
-                            <span>É um doador? <a href="sign-up.jsp" onclick="login()">Cadastro de 
+                            <span>Já tem uma conta? <a href="login" onclick="login()">Login</a></span>
+                            <span>É um doador? <a href="sign-up-donor" onclick="login()">Cadastro de 
                             Doadores</a></span>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                         <div class="col">
                             <div class="one">
                                 <input type="checkbox" name="conditions-and-terms" id="termos" value="${termos}">
-                                <label for="termos"> Declaro que li e concordo com os <a href="#">Termos de Uso</a> de “Doações Eleos”.</label>
+                                <label for="termos"> Declaro que li e concordo com os <a href="politics-privacity">Termos de Uso</a> de “Doações Eleos”.</label>
                             </div>
                             <div class="input-box">
                             <input type="submit" class="submit" value="Criar Conta">

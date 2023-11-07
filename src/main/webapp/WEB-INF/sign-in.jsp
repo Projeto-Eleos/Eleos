@@ -31,6 +31,12 @@
                 <i class="custom-icon" id="ver_desver"><img src="public/images/closed-eye.png" alt=""></i>
               </div>
             </div>
+            <c:if test="${authentication != null}">
+              <div class="error-box">
+                  <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
+                  <span class="erros">Para acessar esta página você precisa fazer o login!</span>
+              </div>
+            </c:if>
             <c:if test="${erros != null}">
               <c:forEach var="erro" items="${erros}">
                   <div class="error-box">
@@ -40,7 +46,7 @@
               </c:forEach>
             </c:if>  
             <br>
-            <a href="password-recover.html">Esqueceu sua senha?</a>
+            <a href="auth-password-change">Esqueceu sua senha?</a>
             <div class="input-box">
               <input type="submit" class="submit" value="Entrar" id="button">
             </div>  
@@ -52,7 +58,7 @@
             <h1 id="title2">É novo aqui?</h1>
             <p id="subtitle">Junte-se à comunidade do Eleos! Crie sua conta e comece a fazer a diferença!</p>
           <div class="input-box">
-            <a href="sign-up.jsp"><input type="submit" class="submit2" value="Comece por aqui"></a>
+            <a href="sign-up-donor"><input type="submit" class="submit2" value="Comece por aqui"></a>
           </div> 
         </div>
       </div>

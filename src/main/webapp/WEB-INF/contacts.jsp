@@ -1,4 +1,4 @@
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +11,13 @@
 </head>
 <body>
     <header>
-        <a class="logo" href="./index.jsp">Eleos</a>
+        <a class="logo" href="./home">Eleos</a>
         <div class="header-right">
-            <a id="item" href="./index.jsp">Página Inicial</a>
-            <a id="item" href="./campaigns.html">Campanhas</a>
-            <a class="active" href="./contacts.html">Contato</a>
-            <a href="./sign-in.html" class="login">Login</a>
-            <a href="./sign-up.html" class="cadastro">Cadastre-se</a>
+            <a id="item" href="./home">Página Inicial</a>
+            <a id="item" href="./campaigns">Campanhas</a>
+            <a  class="active" href="./contacts">Contato</a>
+            <a href="./login" class="login">Login</a>
+            <a href="./sign-up-donor" class="cadastro">Cadastre-se</a>
         </div>
     </header>
     <main>

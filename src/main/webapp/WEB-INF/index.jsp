@@ -12,14 +12,13 @@
 </head>
 <body> 
     <header>
-        <a class="logo" href="./index.jsp">Eleos</a>
+        <a class="logo" href="./home">Eleos</a>
         <div class="header-right">
-            <a class="active" href="#home"><fmt:message key="homepage.home"/></a>
-            <a id="item" href="./campaigns.html"><fmt:message key="homepage.campaign"/></a>
-            <a id="item" href="./contacts.html"><fmt:message key="homepage.contact"/></a>
-            <a  href="./sign-in.jsp" class="login"><fmt:message key="homepage.sign-in"/></a>
-            <a href="./sign-up.jsp" class="cadastro"><fmt:message key="homepage.sign-up"/></a>
-            <a href="./sign-up-ong.jsp" class="cadastro"><fmt:message key="homepage.sign-up-ong"/></a>
+            <a class="active" href="/home"><fmt:message key="homepage.home"/></a>
+            <a id="item" href="./campaigns"><fmt:message key="homepage.campaign"/></a>
+            <a id="item" href="./contacts"><fmt:message key="homepage.contact"/></a>
+            <a  href="./login" class="login"><fmt:message key="homepage.sign-in"/></a>
+            <a href="./sign-up-donor" class="cadastro"><fmt:message key="homepage.sign-up"/></a>
         </div>
     </header>
     <div class="conteiner">
@@ -28,8 +27,8 @@
             <h1><fmt:message key="homepage.slogan"/></h1>
             <p class="descricao"><fmt:message key="homepage.description-pt-1"/><br><br><fmt:message key="homepage.description-pt-2"/></p>
             <div class="left-flex">
-                <a href="./sign-in.html"><button><fmt:message key="homepage.slogan-description"/></button></a>
-                <a href="#donation"><span id="span"><fmt:message key="homepage.learn-more"/></span></a>
+                <a href="./login"><button><fmt:message key="homepage.slogan-description"/></button></a>
+                <a href="./campaigns"><span id="span"><fmt:message key="homepage.learn-more"/></span></a>
             </div>
         </div>
         <div class="right">
@@ -106,8 +105,8 @@
         <h1 class="Logo2">Eleos.</h1>
         <p><fmt:message key="homepage.description-3"/></p>
         <a href="#"><fmt:message key="homepage.tag1"/></a>
-        <a href="./politics-and-privacity.html">| <fmt:message key="homepage.tag2"/> |</a>
-        <a href="./contacts.html"><fmt:message key="homepage.tag3"/></a>
+        <a href="./politics-privacity">| <fmt:message key="homepage.tag2"/> |</a>
+        <a href="./contacts"><fmt:message key="homepage.tag3"/></a>
     </div>
     <p class="copyright">&copy; 2023 Doações Eleos | Eleos</p>
 </footer>
