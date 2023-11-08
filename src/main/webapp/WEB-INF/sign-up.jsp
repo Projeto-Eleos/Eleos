@@ -26,6 +26,7 @@
                             Instituiçoes</a></span>
                         </div>
                     </div>
+                    <br>
                     <c:if test="!${erros.isEmpty()}">
                         <c:forEach var="erro" items="${erros}">
                             <div class="error-box">
@@ -34,7 +35,8 @@
                             </div>
                         </c:forEach>
                     </c:if>
-                    <form method="POST" action="signUp">
+                    <br>
+                    <form method="POST" action="sign-up-donor">
                         <div class="two-forms">
                             <div class="input-box">
                                 <label for="nome">Nome:</label>

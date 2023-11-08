@@ -47,8 +47,8 @@
             return re.test(email);
         }
 
-        let button = document.querySelector("form");
-        form.addEventListener("submit", (e) => {
+        let button = document.querySelector("#button");
+        button.addEventListener("click", (e) => {
             e.preventDefault(); // Evita o envio do formulário
 
             const email = document.querySelector("[name='email']").value;
@@ -61,11 +61,6 @@
             } else {
                 email_invalid.style.display = "none"; // Oculta o <span> de email inválido
                 inputCod.style.display = "block"; // Exibe o campo de código se o email for válido
-                if(inputCod.value == "12345"){
-                    fetch("/change-password", {
-                        method: "GET"
-                    })
-                }
             }
             
         });

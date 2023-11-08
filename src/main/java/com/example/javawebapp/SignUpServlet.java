@@ -58,7 +58,6 @@ public class SignUpServlet extends HttpServlet {
         Set<ConstraintViolation<SignUpUserForm>> violations = ValidatorUtil.validateObject(signUpForm);
 
         if( !violations.isEmpty() || !acceptedTerms){
-            RequestDispatcher dispatcher = req.getRequestDispatcher("./sign-up.jsp");
             if(! (acceptedTerms))
             req.setAttribute("termos", "Aceite os termos para continuar!");
             req.setAttribute("telefone", phone);
@@ -69,9 +68,9 @@ public class SignUpServlet extends HttpServlet {
             req.setAttribute("dataNascimento", birthdate);
             req.setAttribute("termos", acceptedTerms);
             req.setAttribute("erros", violations);
-            dispatcher.forward(req, res);
+            req.getRequestDispatcher("WEB-INF/sign-up.jsp").forward(req, res);
         }else{
-            res.sendRedirect("./sign-in.jsp");
+            res.sendRedirect("./sign-in");
         }    
     }
 }

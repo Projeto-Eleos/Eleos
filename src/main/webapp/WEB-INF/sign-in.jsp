@@ -14,7 +14,7 @@
 <body>
     <main>
       <div class="left-side">
-        <form class="content" method="post" action="signIn">
+        <form class="content" method="post" action="login">
             <!-- Conteúdo do lado esquerdo -->
             <h1 id="title1">Bem-Vindo</h1>
             <p>Faça login e ajude a fazer a diferença!</p>

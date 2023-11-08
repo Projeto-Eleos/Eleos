@@ -26,6 +26,7 @@
                             Doadores</a></span>
                         </div>
                     </div>
+                    <br>
                     <c:if test="${erros != null}">
                         <c:forEach var="erro" items="${erros}">
                             <div class="error-box">
@@ -34,7 +35,8 @@
                             </div>
                         </c:forEach>
                     </c:if>
-                    <form method="POST" action="signUpOng">
+                    <br>
+                    <form method="POST" action="sign-up-ong">
                         <div class="two-forms">
                             <div class="input-box">
                                 <label for="razaoSocial">Razão Social:</label>

@@ -6,7 +6,6 @@ import java.util.Set;
 import jakarta.validation.ConstraintViolation;
 
 import com.example.javawebapp.forms.SignUpOngForm;
-import com.example.javawebapp.forms.SignUpUserForm;
 import com.example.javawebapp.forms.ownsvalidations.ValidatorUtil;
 
 import jakarta.servlet.RequestDispatcher;
@@ -15,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "signUpOng", value = "/sign-up-ong")
 public class SignUpOngServlet extends HttpServlet {
@@ -43,7 +43,6 @@ public class SignUpOngServlet extends HttpServlet {
         Set<ConstraintViolation<SignUpOngForm>> violations = ValidatorUtil.validateObject(signUpForm);
 
         if( !violations.isEmpty() || !acceptedTerms){
-            RequestDispatcher dispatcher = req.getRequestDispatcher("./sign-up-ong.jsp");
             if(! (acceptedTerms))
             req.setAttribute("termos", "Aceite os termos para continuar!");
             req.setAttribute("telefone", phone);
@@ -53,9 +52,9 @@ public class SignUpOngServlet extends HttpServlet {
             req.setAttribute("email", email);
             req.setAttribute("termos", acceptedTerms);
             req.setAttribute("erros", violations);
-            dispatcher.forward(req, res);
+            req.getRequestDispatcher("WEB-INF/sign-up-ong.jsp").forward(req, res);
         }else{
-            res.sendRedirect("./sign-in.jsp");
-        }    
+            res.sendRedirect("./sign-in");
+        }     
     }
 }

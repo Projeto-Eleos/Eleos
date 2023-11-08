@@ -2,8 +2,6 @@ package com.example.javawebapp.filters;
 
 import java.io.IOException;
 
-import com.example.javawebapp.Donor;
-
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.RequestDispatcher;
@@ -24,7 +22,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
 
         HttpSession session = req.getSession();
-        Donor user = (Donor) session.getAttribute("user");
+        String user = (String) session.getAttribute("user");
 
         if (user == null) {
             RequestDispatcher dispatcher = req.getRequestDispatcher("./login");

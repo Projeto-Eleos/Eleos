@@ -1,20 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
-<c:choose>
-    <c:when test="${fn:containsIgnoreCase(request.getHeader('Accept-Language'), 'ar')}">
-        <html lang="ar" dir="rtl">
-    </c:when>
-    <c:otherwise>
-        <html lang="en">
-    </c:otherwise>
-</c:choose>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><fmt:message key="general.home"/></title>
+    <title><fmt:message key="homepage.home"/></title>
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/global.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -23,16 +14,12 @@
     <header>
         <a class="logo" href="./home">Eleos</a>
         <div class="header-right">
-            <a class="active" href="./home"><fmt:message key="general.home"/></a>
-            <a id="item" href="./campaigns"><fmt:message key="general.campaign"/></a>
-            <a id="item" href="./contacts"><fmt:message key="general.contact"/></a>
-            <c:if test="${!(sessionScope.user != null)}">
-                <a  href="./login" class="login"><fmt:message key="general.sign-in"/></a>
-                <a href="./sign-up-donor" class="cadastro"><fmt:message key="general.sign-up"/></a>
-            </c:if>
-            <c:if test="${sessionScope.user != null}">
-                <a class="logado" id="item" href="#"><i class="bx bx-user"></i></a>
-            </c:if>
+            <a class="active" href="/home"><fmt:message key="homepage.home"/></a>
+            <a id="item" href="./campaigns"><fmt:message key="homepage.campaign"/></a>
+            <a id="item" href="./contacts"><fmt:message key="homepage.contact"/></a>
+            <a  href="./login" class="login"><fmt:message key="homepage.sign-in"/></a>
+            <a href="./sign-up-donor" class="cadastro"><fmt:message key="homepage.sign-up"/></a>
+            
         </div>
     </header>
     <div class="conteiner">

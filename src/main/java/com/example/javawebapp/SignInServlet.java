@@ -8,12 +8,12 @@ import jakarta.validation.ConstraintViolation;
 import com.example.javawebapp.forms.SignInForm;
 import com.example.javawebapp.forms.ownsvalidations.ValidatorUtil;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "login", value = "/login")
 public class SignInServlet extends HttpServlet {
@@ -35,15 +35,16 @@ public class SignInServlet extends HttpServlet {
         Set<ConstraintViolation<SignInForm>> violations = ValidatorUtil.validateObject(signInForm);
 
         if (violations.isEmpty()) {
-            RequestDispatcher dispatcher = req.getRequestDispatcher("./welcome.jsp");
-            req.setAttribute("email", email);
-            dispatcher.forward(req, res);
-        } else {
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/sign-in.jsp");
-            req.setAttribute("erros", violations);
+            HttpSession session = req.getSession();
+            session.setAttribute("user", email);
+            
+            req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, res);
+            res.sendRedirect("welcome");
+        }else{
             req.setAttribute("email", email);
             req.setAttribute("senha", password);
-            dispatcher.forward(req, res);
-        }
+            req.setAttribute("erros", violations);
+            req.getRequestDispatcher("WEB-INF/sign-in.jsp").forward(req, res);
+        }         
     }
 }
