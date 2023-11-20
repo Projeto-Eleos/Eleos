@@ -1,14 +1,13 @@
-package com.example.javawebapp;
+package com.example.javawebapp.Entity;
 
 public class Organization extends User{
-    private static int ultimoId = 0;
-
+    
     private String razaoSocial;
     private String endereco;
     private String cnpj;
 
-    public Organization(String telefone, String email, String senha, String razaoSocial, String endereco, String cnpj) {
-        super(telefone, email, senha);
+    public Organization(int id, String telefone, String email, String senha, String razaoSocial, String endereco, String cnpj) {
+        super(id, telefone, email, senha);
         this.razaoSocial = razaoSocial;
         this.endereco = endereco;
         this.cnpj = cnpj;

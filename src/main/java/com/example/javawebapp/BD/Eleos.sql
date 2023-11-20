@@ -1,0 +1,70 @@
+CREATE DATABASE IF NOT EXISTS Eleos;
+USE Eleos;
+
+CREATE TABLE Doador (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(255) NOT NULL,
+  sobrenome VARCHAR(255) NOT NULL,
+  telefone VARCHAR(13) NOT NULL,
+  cpf CHAR(11) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  senha CHAR(60) NOT NULL,
+  administrador BOOLEAN NOT NULL,
+  data_nascimento DATE NOT NULL
+);
+
+CREATE TABLE Instituicao (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  razaosocial VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  endereco VARCHAR(255) NOT NULL,
+  telefone VARCHAR(13) NOT NULL,
+  senha CHAR(60) NOT NULL,
+  cnpj VARCHAR(14) NOT NULL
+);
+
+CREATE TABLE Deposito (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  endereco VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  capacidade VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Categoria (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(255) NOT NULL,
+  imagem VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Campanha (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  titulo VARCHAR(255) NOT NULL,
+  vencimento DATETIME NOT NULL,
+  descricao VARCHAR(255) NOT NULL,
+  id_deposito INT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE Item (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(255) NOT NULL,
+  quantidade VARCHAR(255) NOT NULL,
+  novo_usado BOOLEAN NOT NULL,
+  validade DATETIME NOT NULL,
+  tamanho VARCHAR(10) NOT NULL,
+  estado VARCHAR(255) NOT NULL,
+  observacao VARCHAR(255),
+  id_doador INT NOT NULL,
+  id_campanha INT NOT NULL,
+  FOREIGN KEY (id_doador) REFERENCES Doador(id),
+  FOREIGN KEY (id_campanha) REFERENCES Campanha(id)
+);
+
+CREATE TABLE CampanhaCategoria (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  arrecadacao INT,
+  meta INT,
+  id_campanha INT NOT NULL,
+  FOREIGN KEY (id_campanha) REFERENCES Campanha(id),
+  id_categoria INT NOT NULL,
+  FOREIGN KEY (id_categoria) REFERENCES Categoria(id)
+);

@@ -5,6 +5,10 @@ import java.util.Set;
 
 import jakarta.validation.ConstraintViolation;
 
+import com.example.javawebapp.DAO.DonorDAO;
+import com.example.javawebapp.DAO.OrganizationDAO;
+import com.example.javawebapp.Entity.Donor;
+import com.example.javawebapp.Entity.Organization;
 import com.example.javawebapp.forms.SignInForm;
 import com.example.javawebapp.forms.ownsvalidations.ValidatorUtil;
 
@@ -35,16 +39,25 @@ public class SignInServlet extends HttpServlet {
         Set<ConstraintViolation<SignInForm>> violations = ValidatorUtil.validateObject(signInForm);
 
         if (violations.isEmpty()) {
-            HttpSession session = req.getSession();
-            session.setAttribute("user", email);
-            
-            req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, res);
-            res.sendRedirect("welcome");
-        }else{
-            req.setAttribute("email", email);
-            req.setAttribute("senha", password);
-            req.setAttribute("erros", violations);
-            req.getRequestDispatcher("WEB-INF/sign-in.jsp").forward(req, res);
-        }         
+            if (DonorDAO.login(email, password)) {
+                HttpSession session = req.getSession();
+                session.setAttribute("Donor", DonorDAO.buscarPorEmail(email));
+                session.setAttribute("Organization", null);
+                res.sendRedirect("./home");
+                return;
+            } else if (OrganizationDAO.login(email, password)) {
+                HttpSession session = req.getSession();
+                session.setAttribute("Donor", null);
+                session.setAttribute("Organization", OrganizationDAO.buscarPorEmail(email));
+                res.sendRedirect("./home");
+                return;
+            }
+        }
+
+        req.setAttribute("email", email);
+        req.setAttribute("senha", password);
+        req.setAttribute("erros", violations);
+        req.getRequestDispatcher("WEB-INF/sign-in.jsp").forward(req, res);
+                   
     }
 }

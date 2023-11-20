@@ -2,6 +2,9 @@ package com.example.javawebapp.filters;
 
 import java.io.IOException;
 
+import com.example.javawebapp.Entity.Donor;
+import com.example.javawebapp.Entity.Organization;
+
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.RequestDispatcher;
@@ -22,16 +25,15 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
 
         HttpSession session = req.getSession();
-        String user = (String) session.getAttribute("user");
+        Donor user = (Donor) session.getAttribute("Donor");
+        Organization ong = (Organization) session.getAttribute("Organization");
 
-        if (user == null) {
+        if (user == null && ong == null) {
             RequestDispatcher dispatcher = req.getRequestDispatcher("./login");
             req.setAttribute("authentication", true);
             dispatcher.forward(req, res);
             return;
         }
-
         chain.doFilter(request, response);
     }
-    
 }

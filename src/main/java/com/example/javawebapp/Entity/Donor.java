@@ -1,19 +1,17 @@
-package com.example.javawebapp;
+package com.example.javawebapp.Entity;
 
 import java.util.Date;
 
 public class Donor extends User{
-    private static int ultimoId = 0;
 
     private String name;
     private String sobrenome;
     private String cpf;
     private boolean adm;
     private Date dataNascimento;
-
-    public Donor(String telefone, String email, String senha, String name, String sobrenome, String cpf, boolean adm, Date dataNascimento) {
-        super(telefone, email, senha);
-        super.setId(ultimoId + 1); ultimoId++; 
+    
+    public Donor(int id, String telefone, String email, String senha, String name, String sobrenome, String cpf, boolean adm, Date dataNascimento) {
+        super(id, telefone, email, senha); 
         this.name = name;
         this.sobrenome = sobrenome;
         this.cpf = cpf;

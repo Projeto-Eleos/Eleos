@@ -18,6 +18,7 @@ public class DateBetweenValidator implements ConstraintValidator<DateBetween, Da
         max.set(today.get(Calendar.YEAR) - 124, today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH));
         min.set(today.get(Calendar.YEAR) - 18, today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH));
 
+
         Calendar dateCalendar = Calendar.getInstance();
         dateCalendar.setTime(date);
 

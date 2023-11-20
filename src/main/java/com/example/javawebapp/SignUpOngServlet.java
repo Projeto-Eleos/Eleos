@@ -5,6 +5,9 @@ import java.util.Set;
 
 import jakarta.validation.ConstraintViolation;
 
+import com.example.javawebapp.DAO.DonorDAO;
+import com.example.javawebapp.DAO.OrganizationDAO;
+import com.example.javawebapp.Entity.Organization;
 import com.example.javawebapp.forms.SignUpOngForm;
 import com.example.javawebapp.forms.ownsvalidations.ValidatorUtil;
 
@@ -25,6 +28,7 @@ public class SignUpOngServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        //Pegando os dados da requisição
         String razaoSocial = req.getParameter("razaoSocial");
         razaoSocial = (razaoSocial != null) ? razaoSocial.strip() : null;
 
@@ -34,17 +38,20 @@ public class SignUpOngServlet extends HttpServlet {
         String email = (req.getParameter("email") != null) ? req.getParameter("email").strip() : null;
         String password = (req.getParameter("password") != null) ? req.getParameter("password").strip() : null;
         String confirmPassword = (req.getParameter("confirm-password") != null) ? req.getParameter("confirm-password").strip() : null;
-
-
         boolean acceptedTerms = req.getParameter("conditions-and-terms") != null;
         
         SignUpOngForm signUpForm = new SignUpOngForm(phone, email, password, confirmPassword, razaoSocial, address, CNPJ);
         
         Set<ConstraintViolation<SignUpOngForm>> violations = ValidatorUtil.validateObject(signUpForm);
 
-        if( !violations.isEmpty() || !acceptedTerms){
-            if(! (acceptedTerms))
+        if(! (acceptedTerms)){
             req.setAttribute("termos", "Aceite os termos para continuar!");
+        }
+
+        if( !violations.isEmpty() || OrganizationDAO.existeComEmail(email)){
+            if (OrganizationDAO.existeComEmail(email)) {
+                req.setAttribute("emailDuplicado", "Já existe uma conta com esse e-mail");
+            }
             req.setAttribute("telefone", phone);
             req.setAttribute("CNPJ", CNPJ);
             req.setAttribute("endereco", address);
@@ -54,7 +61,8 @@ public class SignUpOngServlet extends HttpServlet {
             req.setAttribute("erros", violations);
             req.getRequestDispatcher("WEB-INF/sign-up-ong.jsp").forward(req, res);
         }else{
-            res.sendRedirect("./sign-in");
+            OrganizationDAO.cadastrar(phone, email, password, razaoSocial, address, CNPJ);
+            res.sendRedirect("./login");
         }     
     }
 }

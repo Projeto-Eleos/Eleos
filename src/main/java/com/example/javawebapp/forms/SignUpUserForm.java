@@ -46,7 +46,6 @@ public class SignUpUserForm {
     private String cpf;
 
     @Past(message = "A data de nascimento deve estar no passado")
-    @DateBetween
     private Date dataNascimento;
 
     public SignUpUserForm(@Phone String telefone, @Email String email, @ValidPassword String senha, @ValidPassword String confirmSenha,

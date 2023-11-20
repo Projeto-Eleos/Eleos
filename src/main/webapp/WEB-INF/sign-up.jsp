@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <br>
-                    <c:if test="!${erros.isEmpty()}">
+                    <c:if test="${erros != null}">
                         <c:forEach var="erro" items="${erros}">
                             <div class="error-box">
                                 <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>

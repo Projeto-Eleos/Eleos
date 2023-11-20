@@ -26,12 +26,19 @@
             <a class="active" href="./home"><fmt:message key="general.home"/></a>
             <a id="item" href="./campaigns"><fmt:message key="general.campaign"/></a>
             <a id="item" href="./contacts"><fmt:message key="general.contact"/></a>
-            <c:if test="${!(sessionScope.user != null)}">
+            <c:if test="${(sessionScope.Donor == null) && (sessionScope.Organization == null)}">
                 <a  href="./login" class="login"><fmt:message key="general.sign-in"/></a>
                 <a href="./sign-up-donor" class="cadastro"><fmt:message key="general.sign-up"/></a>
             </c:if>
-            <c:if test="${sessionScope.user != null}">
-                <a class="logado" id="item" href="#"><i class="bx bx-user"></i></a>
+            <c:if test="${sessionScope.Donor != null}">
+                <a href="./logout" id="item">sair</a>
+                <a href="./home" id="item">${sessionScope.Donor.name}</a>
+                <a class="logado" id="item" href="./home"><i class="bx bx-user"></i></a>
+            </c:if>
+            <c:if test="${sessionScope.Organization != null}">
+                <a href="./logout" id="item">sair</a>
+                <a href="./home" id="item">${sessionScope.Organization.razaoSocial}</a>
+                <a class="logado" id="item" href="./home"><i class="bx bx-user"></i></a>
             </c:if>
         </div>
     </header>

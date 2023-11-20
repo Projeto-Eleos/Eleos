@@ -1,4 +1,4 @@
-package com.example.javawebapp;
+package com.example.javawebapp.Entity;
 
 public abstract class User {
     private int id;
@@ -19,7 +19,8 @@ public abstract class User {
     } 
 
     
-    public User(String telefone, String email, String senha) {
+    public User(int id, String telefone, String email, String senha) {
+        this.id = id;
         this.telefone = telefone;
         this.email = email;
         this.senha = senha;
