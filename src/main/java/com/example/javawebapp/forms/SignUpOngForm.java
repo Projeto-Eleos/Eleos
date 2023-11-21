@@ -6,44 +6,43 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CNPJ;
-
 import com.example.javawebapp.forms.ownsvalidations.Phone;
 import com.example.javawebapp.forms.ownsvalidations.ValidAdress;
 import com.example.javawebapp.forms.ownsvalidations.ValidPassword;
 
 public class SignUpOngForm {
-    @NotBlank
-    @Phone
+    @Phone(message = "O telefone é inválido!")
+    @NotBlank(message = "O telefone não pode ser vazio!")
     private String telefone;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "O email não pode ser vazio!")
+    @Email(message = "O email é inválido!")
     private String email;
 
-    @NotBlank
-    @ValidPassword
+    @NotBlank(message = "A senha não pode ser vazia!")
+    @ValidPassword(message = "A senha não atende os critérios de validação!\nDeve ter ao menos uma letra maiúscula, minúscula, número e caracter especial!")
     private String senha;
 
-    @NotBlank
-    @ValidPassword
+    @NotBlank(message = "A senha não pode ser vazia!")
+    @ValidPassword(message = "A senha não atende os critérios de validação!\nDeve ter ao menos uma letra maiúscula, minúscula, número e caracter especial!")
     private String coonfirmSenha;
 
-    @NotBlank
+    @NotBlank(message = "A razão social não pode ser vazia!")
     @Size(min = 3, max = 50, message = "O nome deve ter entre 3 e 255 letras")
-    @Pattern(regexp = "^[A-Za-z]+$", message = "O nome deve conter apenas letras")
+    @Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\sçÇ]+$", message = "A razão social deve conter apenas letras, espaços e \"ç\"")
     private String razaoSocial;
 
-    @NotBlank
-    @ValidAdress
+    @NotBlank(message = "O endereço não pode ser vazio!")
+    @ValidAdress(message = "O endereço é inválido!")
     private String endereco;
 
-    @NotBlank
-    @CNPJ
+    @NotBlank(message = "O CNPJ não pode ser vazio!")
+    @CNPJ(message = "O número do cadastro nacional de pessoa jurídica(CPF) é inválido!")
     private String cnpj;
 
     public SignUpOngForm(@NotBlank @Phone String telefone, @NotBlank @Email String email, @NotBlank @ValidPassword String senha,
             @NotBlank @ValidPassword String coonfirmSenha,
-            @NotBlank @Size(min = 3, max = 50, message = "O nome deve ter entre 3 e 255 letras") @Pattern(regexp = "^[A-Za-z]+$", message = "O nome deve conter apenas letras") String razaoSocial,
+            @NotBlank @Size(min = 3, max = 50, message = "O nome deve ter entre 3 e 255 letras!") @Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\sçÇ]+$", message = "A razão social deve conter apenas letras, espaços e \"ç\"") String razaoSocial,
             @NotBlank @ValidAdress String endereco, @NotBlank @CNPJ String cnpj) {
         this.telefone = telefone;
         this.email = email;

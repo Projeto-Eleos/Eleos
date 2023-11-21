@@ -10,12 +10,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "Campaigns", value = "/campaigns")
-public class CampaignsServlet extends HttpServlet {
+@WebServlet(name = "CampaignManagement", value = "/campaignManagement")
+public class CampaignManagementServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.setAttribute("campanhas", CampaignDAO.buscarTodasCampanhas());
-        req.getRequestDispatcher("WEB-INF/campaigns.jsp").forward(req, res);
+        req.setAttribute("campanhas", CampaignDAO.buscarCampanhas(req));
+        req.getRequestDispatcher("WEB-INF/campaign-management.jsp").forward(req, res);
     }
 }

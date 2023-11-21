@@ -27,11 +27,17 @@
                         </div>
                     </div>
                     <br>
+                    <c:if test="${termosErro != null && termosErro}">
+                        <div class="error-box">
+                            <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
+                            <span class="erros">Aceite os termos para continuar!</span>
+                        </div>
+                    </c:if>
                     <c:if test="${erros != null}">
                         <c:forEach var="erro" items="${erros}">
                             <div class="error-box">
                                 <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
-                                <span class="erros">${erro.propertyPath} - ${erro.message}</span>
+                                <span class="erros">${erro.message}</span>
                             </div>
                         </c:forEach>
                     </c:if>

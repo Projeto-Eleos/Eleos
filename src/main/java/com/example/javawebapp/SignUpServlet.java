@@ -59,15 +59,14 @@ public class SignUpServlet extends HttpServlet {
         SignUpUserForm signUpForm = new SignUpUserForm(phone, email, password, confirmPassword, firstname, lastname, cpf, birthdateDate);
      
         Set<ConstraintViolation<SignUpUserForm>> violations = ValidatorUtil.validateObject(signUpForm);
-
-        if(! (acceptedTerms)){
-            req.setAttribute("termos", "Aceite os termos para continuar!");
-        }
         
-        if( !violations.isEmpty() || DonorDAO.existeComEmail(email))
+        if( !violations.isEmpty() || DonorDAO.existeComEmail(email) || !(acceptedTerms))
         {
             if (DonorDAO.existeComEmail(email)) {
                 req.setAttribute("emailDuplicado", "Já existe uma conta com esse e-mail");
+            }
+            if(! (acceptedTerms)){
+                req.setAttribute("termosErro", true);
             }
             req.setAttribute("telefone", phone);
             req.setAttribute("cpf", cpf);

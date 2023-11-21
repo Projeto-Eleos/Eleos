@@ -41,10 +41,16 @@
               <c:forEach var="erro" items="${erros}">
                   <div class="error-box">
                       <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
-                      <span class="erros">${erro.propertyPath} - ${erro.message}</span>
+                      <span class="erros">${erro.message}</span>
                   </div>
               </c:forEach>
             </c:if>  
+            <c:if test="${erroLogin != null}">
+                <div class="error-box">
+                    <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
+                    <span class="erros">${erroLogin}</span>
+                </div>
+            </c:if>
             <br>
             <a href="auth-password-change">Esqueceu sua senha?</a>
             <div class="input-box">

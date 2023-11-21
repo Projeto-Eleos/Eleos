@@ -44,11 +44,10 @@ public class SignUpOngServlet extends HttpServlet {
         
         Set<ConstraintViolation<SignUpOngForm>> violations = ValidatorUtil.validateObject(signUpForm);
 
-        if(! (acceptedTerms)){
-            req.setAttribute("termos", "Aceite os termos para continuar!");
-        }
-
-        if( !violations.isEmpty() || OrganizationDAO.existeComEmail(email)){
+        if( !violations.isEmpty() || OrganizationDAO.existeComEmail(email) || ! (acceptedTerms)){
+            if(! (acceptedTerms)){
+                req.setAttribute("termosErro", true);
+            }
             if (OrganizationDAO.existeComEmail(email)) {
                 req.setAttribute("emailDuplicado", "Já existe uma conta com esse e-mail");
             }

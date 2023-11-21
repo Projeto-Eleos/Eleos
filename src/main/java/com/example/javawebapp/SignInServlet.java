@@ -51,6 +51,12 @@ public class SignInServlet extends HttpServlet {
                 session.setAttribute("Organization", OrganizationDAO.buscarPorEmail(email));
                 res.sendRedirect("./home");
                 return;
+            }else{
+                req.setAttribute("email", email);
+                req.setAttribute("senha", password);
+                req.setAttribute("erros", violations);
+                req.setAttribute("erroLogin", "Os dados informados não condizem a uma conta ");
+                req.getRequestDispatcher("WEB-INF/sign-in.jsp").forward(req, res);
             }
         }
 

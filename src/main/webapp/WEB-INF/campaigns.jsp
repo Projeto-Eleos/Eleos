@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,40 +43,15 @@
             </ul>
         </div>
         <div class="content">
-            <div class="product">
-                <img src="./public/images/doação-alimentos1.jpg" alt="Produto 1">
-                <h3><fmt:message key="campaign.campaigntitle1"/></h3>
-                <p><fmt:message key="campaign.description1"/></p>
-                <button><fmt:message key="campaign.join"/></button>
-            </div>
-            <div class="product">
-                <img src="./public/images/doação-roupas.jpg" alt="Produto 2">
-                <h3><fmt:message key="campaign.campaigntitle2"/></h3>
-                <p><fmt:message key="campaign.description2"/></p>
-                <button><fmt:message key="campaign.join"/></button>
-            </div>
-            <div class="product">
-                <img src="./public/images/doação-brinquedos.jpg" alt="Produto 1">
-                <h3><fmt:message key="campaign.campaigntitle3"/></h3>
-                <p><fmt:message key="campaign.description3"/></p>
-                <button><fmt:message key="campaign.join"/></button>
-            </div>
-            <div class="product">
-                <img src="./public/images/doação-higiene.jpg" alt="Produto 2">
-                <h3><fmt:message key="campaign.campaigntitle4"/></h3>
-                <p><fmt:message key="campaign.description4"/></p>
-                <button><fmt:message key="campaign.join"/></button>
-            </div><div class="product">
-                <img src="./public/images/doação-material.jpg" alt="Produto 1">
-                <h3><fmt:message key="campaign.title5"/></h3>
-                <p><fmt:message key="campaign.description5"/></p>
-                <button><fmt:message key="campaign.join"/></button>
-            </div>
-            <div class="product">
-                <img src="./public/images/doação-roupas.jpg" alt="Produto 2">
-                <h3><fmt:message key="campaign.campaigntitle6"/></h3>
-                <p><fmt:message key="campaign.description6"/></p>
-                <button><fmt:message key="campaign.join"/></button>
-            </div>
+            <c:forEach var="campanha" items="${campanhas}">
+                <div class="product">
+                    <img src="./public/images/${campanha.urlImage}" alt="${campanha.categoria}">
+                    <h3>${campanha.titulo}</h3>
+                    <p>${campanha.descricao}</p>
+                    <button href="" >${campaign.join}</button>
+                </div>
+            </c:forEach>
+        </div>
+    </div>    
 </body>
 </html>

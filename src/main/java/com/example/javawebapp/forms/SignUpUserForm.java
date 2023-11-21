@@ -15,37 +15,37 @@ import com.example.javawebapp.forms.ownsvalidations.ValidPassword;
 import java.util.Date;
 
 public class SignUpUserForm {
-    @Phone
-    @NotBlank
+    @Phone(message = "O telefone é inválido!")
+    @NotBlank(message = "O telefone não pode ser vazio!")
     private String telefone;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "O email não pode ser vazio!")
+    @Email(message = "O email é inválido!")
     private String email;
 
-    @NotBlank
-    @ValidPassword
+    @NotBlank(message = "O senha não pode ser vazio!")
+    @ValidPassword(message = "A senha não atende os critérios de validação!\nDeve ter ao menos uma letra maiúscula, minúscula, número e caracter especial!")
     private String senha;
 
-    @NotBlank
-    @ValidPassword
+    @NotBlank(message = "O senha não pode ser vazio!")
+    @ValidPassword(message = "A senha não atende os critérios de validação!\nDeve ter ao menos uma letra maiúscula, minúscula, número e caracter especial!")
     private String confirmSenha;
 
-    @NotBlank
-    @Size(min = 3, max = 50, message = "O nome deve ter entre 3 e 255 letras")
-    @Pattern(regexp = "^[A-Za-z]+$", message = "O nome deve conter apenas letras")
+    @NotBlank(message = "O nome não pode ser vazio!")
+    @Size(min = 3, max = 50, message = "O nome deve ter entre 3 e 255 letras!")
+    @Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\sçÇ]+$", message = "O nome deve conter apenas letras, espaços e \"ç\"")
     private String name;
 
-    @NotBlank
-    @Size(min = 2, max = 50, message = "O sobrenome deve ter entre 2 e 255 letras")
-    @Pattern(regexp = "^[A-Za-z]+$", message = "O sobrenome deve conter apenas letras")
+    @NotBlank(message = "O sobrenome não pode ser vazio!")
+    @Size(min = 2, max = 50, message = "O sobrenome deve ter entre 2 e 255 letras!")
+    @Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ\\sçÇ]+$", message = "O sobrenome deve conter apenas letras, espaços e \"ç\"")
     private String sobrenome;
 
-    @NotBlank
-    @CPF
+    @NotBlank(message = "O CPF não pode ser vazio!")
+    @CPF(message = "O número do cadastro de pessoa física brasileira(CPF) é inválido!")
     private String cpf;
 
-    @Past(message = "A data de nascimento deve estar no passado")
+    @Past(message = "A data de nascimento deve estar no passado!")
     private Date dataNascimento;
 
     public SignUpUserForm(@Phone String telefone, @Email String email, @ValidPassword String senha, @ValidPassword String confirmSenha,
@@ -61,6 +61,4 @@ public class SignUpUserForm {
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
     }
-
-    // Getters e setters
 }

@@ -3,18 +3,15 @@ package com.example.javawebapp.forms;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-import com.example.javawebapp.forms.ownsvalidations.ValidPassword;
-
 public class SignInForm {
-    @NotBlank
-    @Email
+    @NotBlank(message = "O email não pode ser vazio!")
+    @Email(message = "O email é inválido!")
     private String email;
 
-    @NotBlank
-    @ValidPassword
+    @NotBlank@NotBlank(message = "O email não pode ser vazio!")
     private String password;
 
-    public SignInForm(@NotBlank @Email String email, @NotBlank @ValidPassword String password) {
+    public SignInForm(@NotBlank @Email String email, @NotBlank String password) {
         this.email = email;
         this.password = password;
     }
