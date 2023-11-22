@@ -7,8 +7,6 @@ import jakarta.validation.ConstraintViolation;
 
 import com.example.javawebapp.DAO.DonorDAO;
 import com.example.javawebapp.DAO.OrganizationDAO;
-import com.example.javawebapp.Entity.Donor;
-import com.example.javawebapp.Entity.Organization;
 import com.example.javawebapp.forms.SignInForm;
 import com.example.javawebapp.forms.ownsvalidations.ValidatorUtil;
 

@@ -170,3 +170,47 @@ a {
 a:hover{
     font-weight: 600;
 }
+
+a {
+    background-color: transparent;
+  }
+  #logado{
+    padding-top: 5px;
+}
+
+i{
+    font-size: 28px;
+    color: #0A8967;
+}
+
+.error-box{
+    background-color: #db0606;
+    opacity: 0.7;
+    border: 1px solid #db0606;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row;
+    -webkit-box-pack: justify;
+    background-color: var(--background-base,#e91429);
+    padding-block-start: var(--spacer--1,12px);
+    padding-block-end: var(--spacer--1,12px);
+    padding-inline-start: var(--spacer-0,16px);
+    padding-inline-end: var(--spacer-0,16px);
+    transition: background 0.1s ease 0s;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.erros{
+    font-weight: 500; 
+    padding: 5px 10px;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    display: flex;
+    color: var(--text-base,#ffffff);
+    padding-block-start: var(--spacer--1,12px);
+    padding-block-end: var(--spacer--1,12px);
+    padding-inline-start: var(--spacer-0,16px);
+    padding-inline-end: var(--spacer-0,16px);
+    transition: background 0.1s ease 0s;
+}
