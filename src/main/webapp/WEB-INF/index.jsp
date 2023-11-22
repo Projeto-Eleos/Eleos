@@ -31,12 +31,12 @@
                 <a href="./sign-up-donor" class="cadastro"><fmt:message key="general.sign-up"/></a>
             </c:if>
             <c:if test="${sessionScope.Donor != null}">
-                <a href="./logout" id="item">sair</a>
+                <a href="./logout" id="item"><fmt:message key="homepage.logout"/></a>
                 <a href="./home" id="item">${sessionScope.Donor.name}</a>
                 <a class="logado" id="item" href="./home"><i class="bx bx-user"></i></a>
             </c:if>
             <c:if test="${sessionScope.Organization != null}">
-                <a href="./logout" id="item">sair</a>
+                <a href="./logout" id="item"><fmt:message key="homepage.logoutong"/></a>
                 <a href="./home" id="item">${sessionScope.Organization.razaoSocial}</a>
                 <a class="logado" id="item" href="./home"><i class="bx bx-user"></i></a>
             </c:if>

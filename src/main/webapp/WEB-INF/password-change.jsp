@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,21 +19,21 @@
             <div class="form-box">
                 <div class="register-container">
                     <div class="top">
-                        <h1>Redefina sua senha!</h1>
-                        <p>Para alterar a sua senha, basta fornecer a nova senha e confirmá-la em seguida.</p>
+                        <h1><fmt:message key="passwordchange.reset"/></h1>
+                        <p><fmt:message key="passwordchange.description"/></p>
                     </div>
                     <form method="POST" action="authPasswordChange">
                         <div class="input-box">
-                            <label for="password">Senha:</label>
+                            <label for="password"><fmt:message key="passwordchange.password"/></label>
                             <input type="password" class="input-field" name='password' placeholder="Digite a sua nova senha!" required>
                             <i class='bx bx-key'></i>
                         </div>
                         <div class="input-box" id="input_cod" style="display: none;">
-                            <label for="cod">Confirme a nova senha:</label>
+                            <label for="cod"><fmt:message key="passwordchange.confirmpassword"/></label>
                             <input type="password" class="input-field" name="confirmpassword" placeholder="Confirme a nova senha!" required>
                             <i class='bx bx-key'></i>
                             <i class="fa-regular fa-id-card"></i>
-                            <span class="invalid-password">Senha inválida!</span>
+                            <span class="invalid-password"><fmt:message key="passwordchange.invalidpassword"/></span>
                         </div>
                         <div class="input-box">
                             <input type="submit" class="submit" id="button" value="Continuar">

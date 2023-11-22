@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,19 +20,18 @@
             <div class="form-box">
                 <div class="register-container">
                     <div class="top">
-                        <h1>Primeira vez por aqui?</h1>
-                        <p>Estamos felizes em recebê-lo no <b>Eleos</b>, um lugar onde a generosidade encontra o poder de transformar vidas. Ao criar sua conta, você terá acesso a uma plataforma que conecta doadores como você às ONGs que estão fazendo um impacto real no mundo. Vamos começar a fazer a diferença juntos!</p>
+                        <h1><fmt:message key="signup.first"/></h1>
+                        <p><fmt:message key="signup.happy"/> <b>Eleos</b><fmt:message key="signup.place"/></p>
                         <div style="display: flex; flex-direction: column;">
-                            <span>Já tem uma conta? <a href="login" onclick="login()">Login</a></span>
-                            <span>É uma instituiçao? <a href="sign-up-ong" onclick="login()">Cadastro de 
-                            Instituiçoes</a></span>
+                            <span><fmt:message key="signup.account"/> <a href="login" onclick="login()"><fmt:message key="signup.login"/></a></span>
+                            <span><fmt:message key="signup.ong"/> <a href="sign-up-ong" onclick="login()"><fmt:message key="signup.ongregister"/></a></span>
                         </div>
                     </div>
                     <br>
                     <c:if test="${termosErro != null && termosErro}">
                         <div class="error-box">
                             <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
-                            <span class="erros">Aceite os termos para continuar!</span>
+                            <span class="erros"><fmt:message key="signup.accept"/></span>
                         </div>
                     </c:if>
                     <c:if test="${erros != null}">
@@ -45,45 +46,45 @@
                     <form method="POST" action="sign-up-donor">
                         <div class="two-forms">
                             <div class="input-box">
-                                <label for="nome">Nome:</label>
+                                <label for="nome"><fmt:message key="signup.name"/></label>
                                 <input type="text" class="input-field" name="firstname" placeholder="Digite seu nome" value="${nome}" autocomplete="given-name" maxlength="255">
                                 <i class="bx bx-user"></i>
                             </div>
                             <div class="input-box">
-                                <label for="sobrenome">Sobrenome:</label>
+                                <label for="sobrenome"><fmt:message key="signup.surname"/></label>
                                 <input type="text" class="input-field" name="lastname" placeholder="Digite seu sobrenome" value="${sobrenome}" autocomplete="last-name" maxlength="255">
                                 <i class='bx bx-user-circle'></i>
                             </div>
                         </div>
                         <div class="two-forms">
                             <div class="input-box">
-                                <label for="phone">Telefone:</label>
+                                <label for="phone"><fmt:message key="signup.phone"/></label>
                                 <input type="text" class="input-field" id="phone"  name="phone" placeholder="Digite seu telefone" value="${telefone}" autocomplete="tel" maxlength="255">
                                 <i class="bx bx-support"></i>
                             </div>
                             <div class="input-box">
-                                <label for="cpf">CPF:</label>
+                                <label for="cpf"><fmt:message key="signup.cpf"/></label>
                                 <input type="text" class="input-field" id="cpf" name="cpf" placeholder="Digite seu CPF" value="${cpf}" autocomplete="on">
                                 <i class='bx bx-user-circle'></i>
                             </div>
                         </div>
                         <div class="input-box">
-                            <label for="email">Email:</label>
+                            <label for="email"><fmt:message key="signup.email"/></label>
                             <input type="email" class="input-field" id="email" name="email" placeholder="Digite seu endereço de email" value="${email}" autocomplete="email" maxlength="255">
                             <i class="bx bx-envelope"></i>
                         </div>
                         <div class="input-box">
-                            <label for="birthdate">Data de Nascimento:</label>
+                            <label for="birthdate"><fmt:message key="signup.datebirth"/></label>
                             <input type="date" class="input-field" id="birthdate" name="birthdate" placeholder="Data de nascimento"  value="${dataNascimento}" autocomplete="bday">
                             <i class='bx bxs-calendar' ></i>
                         </div>
                         <div class="input-box">
-                            <label for="password">Senha:</label>
+                            <label for="password"><fmt:message key="signup.password"/></label>
                             <input type="password" class="input-field" id="password" name="password" placeholder="Digite sua senha" autocomplete="current-password" >
                             <i class='bx bx-lock-open-alt' ></i>
                         </div>
                         <div class="input-box">
-                            <label for="confirm-password">Confirme sua senha:</label>
+                            <label for="confirm-password"><fmt:message key="signup.confirmpassword"/></label>
                             <input type="password" class="input-field" id="confirm-password" name="confirm-password" placeholder="Confirme sua senha" autocomplete="new-password">
                             <i class='bx bx-lock-alt' ></i>
                         </div>
@@ -91,11 +92,11 @@
                         <div class="two-col">
                             <div class="one">
                                 <input type="checkbox" name="conditions-and-terms" id="termos">
-                                <label for="termos"> Declaro que li e concordo com os <a href="politics-privacity">Termos de Uso</a> de “Doações Eleos”.</label>
+                                <label for="termos"> <fmt:message key="signup.declaration"/> <a href="politics-privacity"><fmt:message key="signup.declaration1"/></a> <fmt:message key="signup.declaration2"/></label>
                             </div>
                             <div class="two">
                                 <input type="checkbox" name="notificacions" id="notificacoes" value="${termos}">
-                                <label for="notificacoes"> Desejo receber notificações por E-mail relacionadas às minhas doações, atualizações de campanhas e novidades sobre as ONGs.</label>
+                                <label for="notificacoes"> <fmt:message key="signup.notification"/></label>
                             </div>
                             <div class="input-box">
                             <input type="submit" class="submit" value="Criar Conta">

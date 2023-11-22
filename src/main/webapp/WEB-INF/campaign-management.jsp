@@ -18,25 +18,25 @@
             <a id="item" href="./home"><fmt:message key="general.home"/></a>
             <a class="active" href="./campaigns"><fmt:message key="general.campaign"/></a>
             <a id="item" href="./contacts"><fmt:message key="general.contact"/></a>
-            <a href="./logout" id="item">sair</a>
+            <a href="./logout" id="item"><fmt:message key="campaignmanagement.logout"/></a>
             <a href="./home" id="item">${sessionScope.Organization.razaoSocial}</a>
             <a class="logado" id="item" href="./home"><i class="bx bx-user"></i></a>
         </div>
     </header>
     <div class="container">
         <div class="flex">
-            <h1>Campanhas</h1>
-            <a class="btn" href="addCampaign">Nova campanha</a>
+            <h1><fmt:message key="campaignmanagement.campaign"/></h1>
+            <a class="btn" href="addCampaign"><fmt:message key="campaignmanagement.newcampaign"/></a>
         </div>
         <table>
             <thead>
-                <th>Nome da Campanha</th>
-                <th>Descrição da Campanha</th>
-                <th>Meta da Campanha</th>
-                <th>Tipo de doação</th>
-                <th>Categoria da Campanha</th>
-                <th>Vencimento da publicação</th>
-                <th>Operação</th>
+                <th><fmt:message key="campaignmanagement.namecampaign"/></th>
+                <th><fmt:message key="campaignmanagement.descriptioncampaign"/></th>
+                <th><fmt:message key="campaignmanagement.goalcampaign"/></th>
+                <th><fmt:message key="campaignmanagement.type"/></th>
+                <th><fmt:message key="campaignmanagement.category"/></th>
+                <th><fmt:message key="campaignmanagement.maturity"/></th>
+                <th><fmt:message key="campaignmanagement.operation"/></th>
             </thead>
             <table>
                 <tbody id="itens">

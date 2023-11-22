@@ -19,7 +19,7 @@
             <a id="item" href="./home"><fmt:message key="general.home"/></a>
             <a class="active" href="./campaigns"><fmt:message key="general.campaign"/></a>
             <a id="item" href="./contacts"><fmt:message key="general.contact"/></a>
-            <a href="./logout" id="item">sair</a>
+            <a href="./logout" id="item"><fmt:message key="addcampaign.logout"/></a>
             <a href="./home" id="item">${sessionScope.Organization.razaoSocial}</a>
             <a class="logado" id="item" href="./home"><i class="bx bx-user"></i></a>
         </div>
@@ -35,39 +35,39 @@
             </c:forEach>
     </c:if>
     <form id="campaign-form"  method="post" action="addCampaign">
-    <h1>Adicionar Campanhas</h1>
-    <p>Preencha o formulário com as seguintes informações da sua campanha:</p>
+    <h1><fmt:message key="addcampaign.title"/></h1>
+    <p><fmt:message key="addcampaign.doform"/></p>
     <hr>
-    <label for="campaign-name">Nome da Campanha</label>
+    <label for="campaign-name"><fmt:message key="addcampaign.name"/></label>
         <input type="text" id="campaign-name" placeholder="Nome da Campanha" name="titulo" value="${titulo}" required>
-    <label for="campaign-description">Descrição da Campanha</label>
-        <textarea rows="5" id="campaign-description" name="descricao" value="${descricao}" required>Descreva o projeto da campanha e seu impacto na comunidade.</textarea>
-    <label for="campaign-goal">Meta de Arrecadações</label>
+    <label for="campaign-description"><fmt:message key="addcampaign.description"/></label>
+        <textarea rows="5" id="campaign-description" name="descricao" value="${descricao}" required><fmt:message key="addcampaign.descriptionandproject"/></textarea>
+    <label for="campaign-goal"><fmt:message key="addcampaign.goal"/></label>
         <input type="number" id="campaign-goal" name="meta" value="${meta}" placeholder="Digite a quantidade de arrecadações esperadas" required>
-    <label for="campaign-type">Tipo de Doação</label>
+    <label for="campaign-type"><fmt:message key="addcampaign.type"/></label>
         <select name="campaign-type" value="${campaign-type}" id="campaign-type">
-            <option value="Alimentos">Alimentos</option>
-            <option value="Brinquedos">Brinquedos</option>
-            <option value="Roupas">Roupas</option>
-            <option value="Produtos de Higiene">Produtos de Higiene</option>
-            <option value="Material Escolar">Material Escolar</option>
-            <option value="Remédios">Remédios</option>
-            <option value="Outros">Outros</option>
+            <option value="Alimentos"><fmt:message key="addcampaign.type1"/></option>
+            <option value="Brinquedos"><fmt:message key="addcampaign.type2"/></option>
+            <option value="Roupas"><fmt:message key="addcampaign.type3"/></option>
+            <option value="Produtos de Higiene"><fmt:message key="addcampaign.type4"/></option>
+            <option value="Material Escolar"><fmt:message key="addcampaign.type5"/></option>
+            <option value="Remédios"><fmt:message key="addcampaign.type6"/></option>
+            <option value="Outros"><fmt:message key="addcampaign.type7"/></option>
         </select>
-    <label for="campaign-category">Categoria da Doação</label>
+    <label for="campaign-category"><fmt:message key="addcampaign.category"/></label>
         <select name="campaign-category" value="${campaign-category}" id="campaign-category">
-            <option value="Saúde">Saúde</option>
-            <option value="Educação">Educação</option>
-            <option value="Assistência Social">Assistência Social</option>
-            <option value="Meio Ambiente">Meio Ambiente</option>
-            <option value="Cultura">Cultura</option>
-            <option value="Outros">Outros</option>
+            <option value="Saúde"><fmt:message key="addcampaign.category1"/></option>
+            <option value="Educação"><fmt:message key="addcampaign.category2"/></option>
+            <option value="Assistência Social"><fmt:message key="addcampaign.category3"/></option>
+            <option value="Meio Ambiente"><fmt:message key="addcampaign.category4"/></option>
+            <option value="Cultura"><fmt:message key="addcampaign.category5"/></option>
+            <option value="Outros"><fmt:message key="addcampaign.type7"/></option>
         </select>
-    <label for="campaign-date">Data de Vencimento ou Publicação?</label>
+    <label for="campaign-date"><fmt:message key="addcampaign.date"/></label>
         <input type="date" value="${vencimento}" id="campaign-date" name="vencimento" required>
-    <button id="campaign-submit">Salvar</button>
+    <button id="campaign-submit"><fmt:message key="addcampaign.save"/></button>
     <input type="hidden" id="campaign-id">
-    <a href="campaignManagement">Visualizar campanhas ativas</a>
+    <a href="campaignManagement"><fmt:message key="addcampaign.view"/></a>
     </form>
 </div>
 </body>

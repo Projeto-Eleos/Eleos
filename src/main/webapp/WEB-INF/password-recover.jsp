@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,18 +19,18 @@
             <div class="form-box">
                 <div class="register-container">
                     <div class="top">
-                        <h1>Esqueceu a senha?</h1>
-                        <p>Basta fornecer o endereço de e-mail associado à sua conta e enviaremos instruções detalhadas sobre como criar uma nova senha.</p>
+                        <h1><fmt:message key="passwordrecover.remembersword"/></h1>
+                        <p><fmt:message key="passwordrecover.description"/></p>
                     </div>
                     <form method="POST" action="authPasswordChange">
                         <div class="input-box">
-                            <label for="email">Email:</label>
+                            <label for="email"><fmt:message key="passwordrecover.email"/></label>
                             <input type="email" class="input-field" name='email' placeholder="Digite seu endereço de email!" required>
                             <i class="bx bx-envelope"></i>
-                            <span class="invalid-email">Email inválido!</span>
+                            <span class="invalid-email"><fmt:message key="passwordrecover.invalidemail"/></span>
                         </div>
                         <div class="input-box" id="input_cod" style="display: none;">
-                            <label for="cod">Insira o código enviado ao email informado:</label>
+                            <label for="cod"><fmt:message key="passwordrecover.code"/></label>
                             <input type="text" class="input-field" name="cod" placeholder="Digite o código enviado ao seu email!" required>
                             <i class='bx bx-message-dots'></i>
                             <i class="fa-regular fa-id-card"></i>

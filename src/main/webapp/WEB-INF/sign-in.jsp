@@ -1,5 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +18,15 @@
       <div class="left-side">
         <form class="content" method="post" action="login">
             <!-- Conteúdo do lado esquerdo -->
-            <h1 id="title1">Bem-Vindo</h1>
-            <p>Faça login e ajude a fazer a diferença!</p>
+            <h1 id="title1"><fmt:message key="signin.welcome"/></h1>
+            <p><fmt:message key="signin.login"/></p>
             <div class="input-box">
-              <label for="email">Email:</label>
+              <label for="email"><fmt:message key="signin.login"/></label>
               <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" value="${email}" required>
               <i class="bx bx-envelope"></i><br>
             </div>
             <div class="input-box">
-              <label for="senha">Senha:</label>
+              <label for="senha"><fmt:message key="signin.password"/></label>
               <div class="password-input">
                 <i class='bx bx-lock-open-alt' id="cadeado"></i>
                 <input type="password" class="input-field password" name="password" placeholder="Digite sua senha" value="${senha}" required>
@@ -34,7 +36,7 @@
             <c:if test="${authentication != null}">
               <div class="error-box">
                   <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
-                  <span class="erros">Para acessar esta página você precisa fazer o login!</span>
+                  <span class="erros"><fmt:message key="signin.alert"/></span>
               </div>
             </c:if>
             <c:if test="${erros != null}">
@@ -52,7 +54,7 @@
                 </div>
             </c:if>
             <br>
-            <a href="auth-password-change">Esqueceu sua senha?</a>
+            <a href="auth-password-change"><fmt:message key="signin.forgot"/></a>
             <div class="input-box">
               <input type="submit" class="submit" value="Entrar" id="button">
             </div>  
@@ -61,8 +63,8 @@
       <div class="right-side">
         <div class="content">
               <!-- Conteúdo do lado direito -->
-            <h1 id="title2">É novo aqui?</h1>
-            <p id="subtitle">Junte-se à comunidade do Eleos! Crie sua conta e comece a fazer a diferença!</p>
+            <h1 id="title2"><fmt:message key="signin.new"/></h1>
+            <p id="subtitle"><fmt:message key="signin.create"/></p>
           <div class="input-box">
             <a href="sign-up-donor"><input type="submit" class="submit2" value="Comece por aqui"></a>
           </div> 

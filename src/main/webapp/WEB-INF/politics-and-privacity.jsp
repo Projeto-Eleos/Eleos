@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,50 +13,50 @@
 </head>
 <body>
     <div class="container">
-        <h1>Política de Privacidade</h1>
-        <br> <p>Última atualização: [13/09/2023]</p> <br>
-        <p>A Eleos está comprometida em proteger a privacidade dos nossos visitantes e doadores. Esta Política de Privacidade descreve como coletamos, usamos e protegemos as informações pessoais que você fornece ao acessar nosso site.</p>
+        <h1><fmt:message key="politic.privacy"/></h1>
+        <br> <p><fmt:message key="politic.lastupdate"/></p> <br>
+        <p><fmt:message key="politic.description"/></p>
 
-        <h3>Informações Coletadas</h3>
+        <h3><fmt:message key="politic.informationcollected"/></h3>
 
-Podemos coletar informações pessoais, incluindo, mas não se limitando a:<br>
+        <fmt:message key="politic.information"/><br>
 
-<br><li>Nome</li>
-<li>Endereço de e-mail</li>
-<li>Número de telefone</li>
-<li>Endereço postal</li>
-<li>Informações de doação</li>
-<li>Uso das Informações</li>
+<br><li><fmt:message key="politic.information1"/></li>
+<li><fmt:message key="politic.information2"/></li>
+<li><fmt:message key="politic.information3"/></li>
+<li><fmt:message key="politic.information4"/></li>
+<li><fmt:message key="politic.information5"/></li>
+<li><fmt:message key="politic.information6"/></li>
 
-<h3>As informações pessoais coletadas são usadas para os seguintes fins: <br></h3>
+<h3><fmt:message key="politic.pessoalinformation"/><br></h3>
 
-<li>Processar doações</li>
-<li>Comunicar atualizações sobre nossos programas e projetos</li>
-<li>Responder a perguntas e solicitações</li>
-<li>Melhorar nosso site e serviços</li>
-<li>Compartilhamento de Informações</li><br>
+<li><fmt:message key="politic.process"/></li>
+<li><fmt:message key="politic.communication"/></li>
+<li><fmt:message key="politic.anwser"/></li>
+<li><fmt:message key="politic.improve"/></li>
+<li><fmt:message key="politic.share"/></li><br>
 
-Não compartilhamos suas informações pessoais com terceiros, exceto quando necessário para cumprir obrigações legais ou com seu consentimento expresso.
+<fmt:message key="politic.notshare"/>
 
-<br><h3>Cookies e Tecnologias Semelhantes</h3>
+<br><h3><fmt:message key="politic.cookies"/></h3>
 
-Nosso site pode usar cookies e tecnologias semelhantes para melhorar a experiência do usuário. Você pode ajustar as configurações do seu navegador para recusar cookies, se preferir.
+<fmt:message key="politic.nave"/>
 
-<h3>Segurança de Dados</h3>
+<h3><fmt:message key="politic.security"/></h3>
 
-Implementamos medidas de segurança para proteger suas informações pessoais, mas não podemos garantir a segurança completa na transmissão ou armazenamento de dados online.
+<fmt:message key="politic.politic.securitymedia="/>
 
-<h3>Links para Sites de Terceiros</h3>
+<h3><fmt:message key="politic.link"/></h3>
 
-Nosso site pode conter links para sites de terceiros. Não somos responsáveis pelas práticas de privacidade desses sites.
+<fmt:message key="politic.linkdescription"/>
 
-<h3>Alterações nesta Política</h3>
+<h3><fmt:message key="politic.alteration"/></h3>
 
-Esta Política de Privacidade pode ser atualizada periodicamente. A data da última atualização será indicada no início da política.
+<fmt:message key="politic.alterationdescription"/>
  
-<h3>Contato</h3>
+<h3><fmt:message key="politic.contact"/></h3>
 
-Se você tiver alguma dúvida sobre nossa Política de Privacidade, entre em contato conosco em doacoeseleos@gmail.com.
+<fmt:message key="politic.contactdescription"/>
 
     </div>
 </body>
