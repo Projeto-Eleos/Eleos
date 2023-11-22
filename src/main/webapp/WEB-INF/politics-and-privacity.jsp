@@ -44,7 +44,7 @@
 
 <h3><fmt:message key="politic.security"/></h3>
 
-<fmt:message key="politic.politic.securitymedia="/>
+<fmt:message key="politic.securitymedia"/>
 
 <h3><fmt:message key="politic.link"/></h3>
 

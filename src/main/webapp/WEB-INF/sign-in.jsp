@@ -21,7 +21,7 @@
             <h1 id="title1"><fmt:message key="signin.welcome"/></h1>
             <p><fmt:message key="signin.login"/></p>
             <div class="input-box">
-              <label for="email"><fmt:message key="signin.login"/></label>
+              <label for="email"><fmt:message key="signin.email"/></label>
               <input type="email" class="input-field" name="email" placeholder="Digite seu endereço de email" value="${email}" required>
               <i class="bx bx-envelope"></i><br>
             </div>

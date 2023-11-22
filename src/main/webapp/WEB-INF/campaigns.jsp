@@ -19,7 +19,9 @@
             <a id="item" href="./home"><fmt:message key="general.home"/></a>
             <a class="active" href="./campaigns"><fmt:message key="general.campaign"/></a>
             <a id="item" href="./contacts"><fmt:message key="general.contact"/></a>
-            <a class="logado" id="item" href="#"><i class="bx bx-user"></i></a>
+            <a href="./logout" id="item"><fmt:message key="homepage.logout"/></a>
+            <a href="./home" id="item">${sessionScope.Donor.name}</a>
+            <a class="logado" id="item" href="./home"><i class="bx bx-user"></i></a>
         </div>
     </header>
     <div class="container">

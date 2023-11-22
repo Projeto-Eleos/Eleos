@@ -89,8 +89,10 @@
                         </div>
                         <div class="col">
                             <div class="one">
-                                <input type="checkbox" name="conditions-and-terms" id="termos" value="${termos}">
-                                <label for="termos"> <fmt:message key="signupong.declaration"/> <a href="politics-privacity"><fmt:message key="signupong.declaration1"/></a> <fmt:message key="signupong.declaration2"/></label>
+                                <div class="one">
+                                    <input type="checkbox" name="conditions-and-terms" id="termos">
+                                    <label for="termos"> <fmt:message key="signup.declaration"/> <a href="politics-privacity"><fmt:message key="signup.declaration1"/></a> <fmt:message key="signup.declaration2"/></label>
+                                </div>
                             </div>
                             <div class="input-box">
                             <input type="submit" class="submit" value="Criar Conta">
