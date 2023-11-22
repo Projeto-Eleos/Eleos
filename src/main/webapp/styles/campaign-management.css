@@ -7,6 +7,11 @@
     scroll-behavior: smooth;
 }
 
+i{
+    font-size: 28px;
+    color: #0A8967;
+}
+
 header {
     height: 80px;
     padding: 0 252px;
@@ -46,7 +51,7 @@ body {
 #item {
     font-size: 16px;
     font-weight: bold;
-    color: #09C184;
+    color: #09C184 !important;
     text-decoration: none;
     margin-right: 40px;
 }
@@ -181,4 +186,12 @@ footer {
 .copyright {
     margin: 10px 0;
     color: #b8b8b8;
+}
+
+a {
+    background-color: transparent;
+  }
+  
+  #logado{
+    padding-top: 5px;
 }

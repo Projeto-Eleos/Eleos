@@ -59,6 +59,11 @@ header {
     color: #09C184;
 }
 
+i{
+    font-size: 28px;
+    color: #0A8967;
+}
+
 .login:hover {
     cursor: pointer;
     background-color: #0A8967;
@@ -173,4 +178,12 @@ header {
 .product button:hover {
     background-color: #0A8967;
     transition: .2s;
+}
+
+a {
+    background-color: transparent;
+  }
+  
+  #logado{
+    padding-top: 5px;
 }

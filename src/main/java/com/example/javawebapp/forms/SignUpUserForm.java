@@ -28,7 +28,6 @@ public class SignUpUserForm {
     private String senha;
 
     @NotBlank(message = "O senha não pode ser vazio!")
-    @ValidPassword(message = "A senha não atende os critérios de validação!\nDeve ter ao menos uma letra maiúscula, minúscula, número e caracter especial!")
     private String confirmSenha;
 
     @NotBlank(message = "O nome não pode ser vazio!")
@@ -45,7 +44,7 @@ public class SignUpUserForm {
     @CPF(message = "O número do cadastro de pessoa física brasileira(CPF) é inválido!")
     private String cpf;
 
-    @Past(message = "A data de nascimento deve estar no passado!")
+    @DateBetween(message = "Você deve ter entre 18 e 124 anos para se cadastrar no site!")
     private Date dataNascimento;
 
     public SignUpUserForm(@Phone String telefone, @Email String email, @ValidPassword String senha, @ValidPassword String confirmSenha,

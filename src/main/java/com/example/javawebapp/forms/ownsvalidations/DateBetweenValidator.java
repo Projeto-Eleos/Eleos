@@ -2,29 +2,30 @@ package com.example.javawebapp.forms.ownsvalidations;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class DateBetweenValidator implements ConstraintValidator<DateBetween, Date> {
 
+    private static final int MIN_AGE = 18;
+    private static final int MAX_AGE = 124;
+
+    @Override
+    public void initialize(DateBetween constraintAnnotation) {
+    }
+
     @Override
     public boolean isValid(Date date, ConstraintValidatorContext context) {
-        Calendar today = Calendar.getInstance();
-        Calendar max = Calendar.getInstance();
-        Calendar min = Calendar.getInstance();
-
-        today.setTime(new Date());
-        max.set(today.get(Calendar.YEAR) - 124, today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH));
-        min.set(today.get(Calendar.YEAR) - 18, today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH));
-
-
-        Calendar dateCalendar = Calendar.getInstance();
-        dateCalendar.setTime(date);
-
-        if (dateCalendar.after(max) || dateCalendar.before(min)) {
-            return false;
+        if (date == null) {
+            return true; // A data nula é considerada válida, ajuste conforme necessário
         }
-        return true;
+
+        LocalDate dateLocal = LocalDate.ofInstant(date.toInstant(), ZoneId.systemDefault());
+        LocalDate today = LocalDate.now();
+        LocalDate minDate = today.minusYears(MAX_AGE);
+        LocalDate maxDate = today.minusYears(MIN_AGE);
+
+        return !dateLocal.isBefore(minDate) && !dateLocal.isAfter(maxDate);
     }
 }

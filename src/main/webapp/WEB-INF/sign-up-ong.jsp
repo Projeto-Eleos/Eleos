@@ -28,6 +28,12 @@
                         </div>
                     </div>
                     <br>
+                    <c:if test="${emailDuplicado != null}">
+                        <div class="error-box">
+                            <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>
+                            <span class="erros">${emailDuplicado}</span>
+                        </div>
+                    </c:if>
                     <c:if test="${termosErro != null && termosErro}">
                         <div class="error-box">
                             <i class='bx bx-info-circle icon' style='color:#ffffff'  ></i>

@@ -24,7 +24,6 @@ public class SignUpOngForm {
     private String senha;
 
     @NotBlank(message = "A senha não pode ser vazia!")
-    @ValidPassword(message = "A senha não atende os critérios de validação!\nDeve ter ao menos uma letra maiúscula, minúscula, número e caracter especial!")
     private String coonfirmSenha;
 
     @NotBlank(message = "A razão social não pode ser vazia!")
